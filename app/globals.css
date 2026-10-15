@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+:root {
+  --wine-950: #2a0c12;
+  --wine-900: #3d121b;
+  --wine-800: #4f1823;
+  --wine-700: #5a1d29;
+  --wine-600: #742a38;
+  --wine-500: #8f3a4a;
+  --wine-400: #ad5d6a;
+  --coral-400: #cf8a80;
+  --coral-300: #e2aca2;
+  --coral-200: #efcdc5;
+  --coral-100: #f7e4df;
+  --coral-50: #fcf3f0;
+  --paper: #fffaf8;
+
+  --ink: #2c1418;
+  --ink-muted: #6f5156;
+  --ink-faint: #a68c90;
+  --rule: #ecdcd8;
+  --rule-strong: #dcc3be;
+
+  --on-wine: #fdf3f1;
+  --on-wine-muted: #dcb9b6;
+  --on-wine-faint: #b38a8d;
+
+  --font-display: "cofo-cinema1909", Georgia, "Times New Roman", serif;
+  --font-body: var(--font-body-face), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-mono-face), ui-monospace, "SF Mono", Menlo, monospace;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-wine-950: var(--wine-950);
+  --color-wine-900: var(--wine-900);
+  --color-wine-800: var(--wine-800);
+  --color-wine-700: var(--wine-700);
+  --color-wine-600: var(--wine-600);
+  --color-wine-500: var(--wine-500);
+  --color-wine-400: var(--wine-400);
+  --color-coral-400: var(--coral-400);
+  --color-coral-300: var(--coral-300);
+  --color-coral-200: var(--coral-200);
+  --color-coral-100: var(--coral-100);
+  --color-coral-50: var(--coral-50);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--ink-muted);
+  --color-faint: var(--ink-faint);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-on-wine: var(--on-wine);
+  --color-on-wine-muted: var(--on-wine-muted);
+  --font-display: var(--font-display);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  background: var(--paper);
+}
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  min-height: 100dvh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+::selection { background: color-mix(in srgb, var(--coral-300) 60%, transparent); color: inherit; }
+
+button:not(:disabled), [role='tab'], summary, a[href], label[for] { cursor: pointer; }
+
+:focus-visible {
+  outline: 2px solid var(--wine-400);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.tnum { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+
+.display { font-family: var(--font-display); font-weight: 100; font-style: normal; }
+
+.prose-wink p { margin: 0 0 1.05em; }
+.prose-wink p:last-child { margin-bottom: 0; }
+.prose-wink em { font-style: italic; }
+.prose-wink strong { font-weight: 600; color: var(--ink); }
+
+.katex { font-size: 1.04em; }
+.on-wine .katex { color: var(--on-wine); }
+
+input[type='range'].scrub {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 22px;
+  background: transparent;
+}
+input[type='range'].scrub::-webkit-slider-runnable-track {
+  height: 2px;
+  background: linear-gradient(to right, var(--wine-600) var(--fill, 0%), var(--rule-strong) var(--fill, 0%));
+  border-radius: 2px;
+}
+input[type='range'].scrub::-moz-range-track {
+  height: 2px;
+  background: var(--rule-strong);
+  border-radius: 2px;
+}
+input[type='range'].scrub::-moz-range-progress {
+  height: 2px;
+  background: var(--wine-600);
+}
+input[type='range'].scrub::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  margin-top: -6px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--wine-600);
+  box-shadow: 0 1px 3px rgba(42, 12, 18, 0.18);
+}
+input[type='range'].scrub::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--wine-600);
+}
+.on-wine input[type='range'].scrub::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, var(--coral-200) var(--fill, 0%), color-mix(in srgb, var(--on-wine) 25%, transparent) var(--fill, 0%));
+}
+.on-wine input[type='range'].scrub::-webkit-slider-thumb { background: var(--wine-700); border-color: var(--coral-200); }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+.rise { animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+@keyframes banner {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.banner-track { animation: banner 60s linear infinite; }
+
+@keyframes nudge {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--coral-300) 70%, transparent); }
+  50% { box-shadow: 0 0 0 7px color-mix(in srgb, var(--coral-300) 0%, transparent); }
+}
+.nudge { animation: nudge 1.8s ease-in-out infinite; }
+.banner:hover .banner-track { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  .banner-track { animation: none; }
+  .nudge { animation: none; box-shadow: 0 0 0 2px var(--coral-300); }
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
