@@ -73,11 +73,11 @@ export const LATENCY: LatencyRow[] = [
   },
   {
     model: 'OpenWAM-α',
-    released: { h100: { action: 91.7, joint: 170.4 }, a10: { action: 384, joint: 856 }, m2: { action: 2082, joint: 12203 } },
-    wink: { h100: { action: 21.5, joint: 99.5 }, a10: { action: 87.1, joint: 541 }, m2: { action: 442, joint: 9380 } },
+    released: { h100: { action: 91.7, joint: 170.4 }, a10: { action: 405.6, joint: 858.9 }, m2: { action: 2082, joint: 12203 } },
+    wink: { h100: { action: 21.5, joint: 99.5 }, a10: { action: 95.2, joint: 541.6 }, m2: { action: 442, joint: 9380 } },
     task: {
-      released: { h100: 7.4, a10: 11.2, m2: 33.4 },
-      wink: { h100: 6.2, a10: 6.3, m2: 6.9 },
+      released: { h100: 7.4, a10: 11.5, m2: 33.4 },
+      wink: { h100: 6.2, a10: 6.2, m2: 6.9 },
       winkStreaming: { h100: true, a10: true, m2: true },
     },
   },

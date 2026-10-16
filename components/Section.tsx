@@ -71,10 +71,11 @@ export function Heading({
   );
 }
 
-export function SubHeading({ children, tone = 'paper' }: { children: ReactNode; tone?: Tone }) {
+export function SubHeading({ children, tone = 'paper', id }: { children: ReactNode; tone?: Tone; id?: string }) {
   return (
     <h3
-      className="display mb-4 mt-16"
+      id={id}
+      className="display mb-4 mt-16 scroll-mt-8"
       style={{ fontSize: 'clamp(28px, 3.4vw, 38px)', lineHeight: 1.1, color: tone === 'wine' ? 'var(--on-wine)' : 'var(--wine-700)' }}
     >
       {children}

@@ -222,8 +222,8 @@ export function StreamingNumbers() {
         </div>
         <div className="grid grid-cols-3 gap-3">
           {[
-            ['54.2 → 8.3 s', 'LIBERO task time on the laptop'],
-            ['85% → 5%', 'time spent waiting for inference'],
+            ['33.4 → 6.9 s', 'median LIBERO task time on the laptop'],
+            ['81% → 10%', 'time spent waiting for inference'],
             ['≈ 20 Hz', 'closed-loop control on an M2 Max'],
           ].map(([big, small]) => (
             <div key={big} className="rounded-[var(--radius-md)] bg-wine-950 p-4 text-on-wine ring-1 ring-white/10">

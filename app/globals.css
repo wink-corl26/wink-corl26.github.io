@@ -163,6 +163,11 @@ input[type='range'].scrub::-moz-range-thumb {
 }
 .rise { animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
 
+@keyframes flash {
+  0%, 45% { color: var(--flash, var(--coral-400)); }
+}
+.flash { animation: flash 2.2s ease-out; }
+
 @keyframes banner {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }

@@ -11,11 +11,11 @@ export type Detail = {
   body: ReactNode;
 };
 
-export const PANELS: { id: PanelId; label: string; title: string; first: string }[] = [
-  { id: 'a', label: '(a)', title: 'One-step generation', first: 'a-video' },
-  { id: 'b', label: '(b)', title: 'Drifting', first: 'b-vfield' },
-  { id: 'c', label: '(c)', title: 'Zero-shot streaming', first: 'c-stream' },
-  { id: 'd', label: '(d)', title: 'Multiresolution imagination', first: 'd-fovea' },
+export const PANELS: { id: PanelId; label: string; title: string; first: string; more: { target: string; label: string } }[] = [
+  { id: 'a', label: '(a)', title: 'One-step generation', first: 'a-video', more: { target: 'why-blur', label: 'Why a single flow step blurs' } },
+  { id: 'b', label: '(b)', title: 'Drifting', first: 'b-vfield', more: { target: 'drifting', label: 'Drifting' } },
+  { id: 'c', label: '(c)', title: 'Zero-shot streaming', first: 'c-stream', more: { target: 'streaming', label: 'Zero-shot streaming' } },
+  { id: 'd', label: '(d)', title: 'Multiresolution imagination', first: 'd-fovea', more: { target: 'multires', label: 'Multiresolution imagination' } },
 ];
 
 export const DETAILS: Record<string, Detail> = {
@@ -243,8 +243,8 @@ export const DETAILS: Record<string, Detail> = {
     visual: <StreamingRule mode="sync" />,
     body: (
       <>
-        On the laptop, WINK with streaming reduces average LIBERO task completion time from 54.2 s to 8.3 s, cutting
-        inference-induced waiting from 85% to 5%.
+        On the laptop, WINK with streaming reduces median LIBERO task completion time from 33.4 s to 6.9 s, cutting
+        inference-induced waiting from 81% to 10%.
       </>
     ),
   },

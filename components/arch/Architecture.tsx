@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useState, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
 import { r2 } from '@/lib/num';
 import { DETAILS, PANELS, type PanelId } from './details';
 import { Tex } from '@/components/Tex';
@@ -542,14 +542,45 @@ export function Architecture({ initial = 'a' }: { initial?: PanelId }) {
   const detail = DETAILS[active];
   const Body = PANEL_BODY[panel];
 
+  const figure = useRef<HTMLDivElement>(null);
+  const [away, setAway] = useState(false);
+  const more = PANELS.find((p) => p.id === detail.panel)!.more;
+
   const choose = (p: PanelId) => {
     setPanel(p);
     setActive(PANELS.find((x) => x.id === p)!.first);
   };
 
+  const jump = (target: string) => {
+    const section = document.getElementById(target);
+    if (!section) return;
+    const heading = section.matches('h2, h3') ? section : section.querySelector<HTMLElement>('h2, h3') ?? section;
+    section.scrollIntoView({ block: 'start' });
+    heading.style.setProperty('--flash', heading.closest('.on-wine') ? 'var(--coral-300)' : 'var(--coral-400)');
+    heading.classList.remove('flash');
+    void heading.offsetWidth;
+    heading.classList.add('flash');
+    setAway(true);
+  };
+
+  useEffect(() => {
+    if (!away || !figure.current) return;
+    let left = false;
+    const io = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) left = true;
+      else if (left) setAway(false);
+    });
+    io.observe(figure.current);
+    const t = window.setTimeout(() => setAway(false), 12000);
+    return () => {
+      io.disconnect();
+      window.clearTimeout(t);
+    };
+  }, [away]);
+
   return (
     <ActiveCtx.Provider value={{ active, set: setActive }}>
-      <div className="mb-6 flex flex-wrap gap-2" role="tablist">
+      <div ref={figure} className="mb-6 flex scroll-mt-8 flex-wrap gap-2" role="tablist">
         {PANELS.map((p) => (
           <button
             key={p.id}
@@ -597,9 +628,33 @@ export function Architecture({ initial = 'a' }: { initial?: PanelId }) {
             <h4 className="display mb-4 text-[30px] leading-none text-wine-800">{detail.title}</h4>
             {detail.visual && <div className="mb-4 rounded-[var(--radius-md)] bg-white p-3 ring-1 ring-rule">{detail.visual}</div>}
             <p className="text-[14px] leading-[1.7] text-ink">{detail.body}</p>
+            <button
+              type="button"
+              onClick={() => jump(more.target)}
+              className="group mt-5 inline-flex items-center gap-2 border-t border-rule pt-4 text-[13.5px] font-medium text-wine-700 transition-colors hover:text-wine-500"
+            >
+              Read more: {more.label}
+              <span aria-hidden className="transition-transform group-hover:translate-y-0.5">
+                ↓
+              </span>
+            </button>
           </div>
         </aside>
       </div>
+      {away && (
+        <div className="pointer-events-none fixed inset-x-0 z-40 flex justify-center" style={{ bottom: 'calc(20px + env(safe-area-inset-bottom, 0px))' }}>
+          <button
+            type="button"
+            onClick={() => {
+              figure.current?.scrollIntoView({ block: 'start' });
+              setAway(false);
+            }}
+            className="rise pointer-events-auto rounded-full bg-wine-700 px-4 py-2 text-[13px] text-on-wine shadow-lg ring-1 ring-wine-800 transition-colors hover:bg-wine-800"
+          >
+            Back to figure ↑
+          </button>
+        </div>
+      )}
     </ActiveCtx.Provider>
   );
 }

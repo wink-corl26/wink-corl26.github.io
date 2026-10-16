@@ -115,7 +115,7 @@ export default function Home() {
           <Architecture />
         </Container>
         <Container className="mt-24">
-          <SubHeading>Why a single flow step blurs</SubHeading>
+          <SubHeading id="why-blur">Why a single flow step blurs</SubHeading>
           <div className="prose-wink text-[16px] text-ink">
             <p>
               A flow-matching WAM learns the velocity <Tex>{'v_\\theta(x_s, s, c_t) \\approx \\varepsilon - x'}</Tex> along the straight
@@ -137,7 +137,7 @@ export default function Home() {
           </div>
         </Container>
         <Container className="mt-24">
-          <SubHeading>Drifting</SubHeading>
+          <SubHeading id="drifting">Drifting</SubHeading>
           <div className="prose-wink text-[16px] text-ink">
             <p>
               Drifting trains the one-step map so that different noise draws give different plausible outputs. For each condition we

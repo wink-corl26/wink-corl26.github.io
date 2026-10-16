@@ -1,101 +1,134 @@
 {
  "episodes": [
   {
-   "id": "libero:libero_goal_task3_trial0",
+   "id": "libero:libero_spatial_task8_trial1",
    "bench": "libero",
-   "title": "Open the top drawer and put the bowl inside",
+   "title": "Pick up the black bowl next to the plate and place it on the plate",
    "fps": 8,
    "aspect": 2.0,
    "arms": {
     "flow10": {
-     "real": "media/episodes/libero/libero_goal_task3_trial0/flow10_real.mp4",
-     "imagined": "media/episodes/libero/libero_goal_task3_trial0/flow10_imagined.mp4",
+     "real": "media/episodes/libero/libero_spatial_task8_trial1/flow10_real.mp4",
+     "imagined": "media/episodes/libero/libero_spatial_task8_trial1/flow10_imagined.mp4",
      "success": true,
-     "frames": 81
+     "frames": 29
     },
     "flow1": {
-     "real": "media/episodes/libero/libero_goal_task3_trial0/flow1_real.mp4",
-     "imagined": "media/episodes/libero/libero_goal_task3_trial0/flow1_imagined.mp4",
+     "real": "media/episodes/libero/libero_spatial_task8_trial1/flow1_real.mp4",
+     "imagined": "media/episodes/libero/libero_spatial_task8_trial1/flow1_imagined.mp4",
      "success": true,
-     "frames": 73
+     "frames": 96
     },
     "flowft": {
-     "real": "media/episodes/libero/libero_goal_task3_trial0/flowft_real.mp4",
-     "imagined": "media/episodes/libero/libero_goal_task3_trial0/flowft_imagined.mp4",
+     "real": "media/episodes/libero/libero_spatial_task8_trial1/flowft_real.mp4",
+     "imagined": "media/episodes/libero/libero_spatial_task8_trial1/flowft_imagined.mp4",
      "success": true,
-     "frames": 47
+     "frames": 28
     },
     "wink": {
-     "real": "media/episodes/libero/libero_goal_task3_trial0/wink_real.mp4",
-     "imagined": "media/episodes/libero/libero_goal_task3_trial0/wink_imagined.mp4",
+     "real": "media/episodes/libero/libero_spatial_task8_trial1/wink_real.mp4",
+     "imagined": "media/episodes/libero/libero_spatial_task8_trial1/wink_imagined.mp4",
+     "success": true,
+     "frames": 48
+    }
+   }
+  },
+  {
+   "id": "libero:libero_object_task1_trial0",
+   "bench": "libero",
+   "title": "Pick up the cream cheese and place it in the basket",
+   "fps": 8,
+   "aspect": 2.0,
+   "arms": {
+    "flow10": {
+     "real": "media/episodes/libero/libero_object_task1_trial0/flow10_real.mp4",
+     "imagined": "media/episodes/libero/libero_object_task1_trial0/flow10_imagined.mp4",
+     "success": true,
+     "frames": 36
+    },
+    "flow1": {
+     "real": "media/episodes/libero/libero_object_task1_trial0/flow1_real.mp4",
+     "imagined": "media/episodes/libero/libero_object_task1_trial0/flow1_imagined.mp4",
+     "success": true,
+     "frames": 40
+    },
+    "flowft": {
+     "real": "media/episodes/libero/libero_object_task1_trial0/flowft_real.mp4",
+     "imagined": "media/episodes/libero/libero_object_task1_trial0/flowft_imagined.mp4",
+     "success": true,
+     "frames": 38
+    },
+    "wink": {
+     "real": "media/episodes/libero/libero_object_task1_trial0/wink_real.mp4",
+     "imagined": "media/episodes/libero/libero_object_task1_trial0/wink_imagined.mp4",
      "success": true,
      "frames": 50
     }
    }
   },
   {
-   "id": "libero:libero_10_task2_trial0",
+   "id": "libero:libero_goal_task0_trial1",
    "bench": "libero",
-   "title": "Turn on the stove and put the moka pot on it",
+   "title": "Open the middle drawer of the cabinet",
    "fps": 8,
    "aspect": 2.0,
    "arms": {
     "flow10": {
-     "real": "media/episodes/libero/libero_10_task2_trial0/flow10_real.mp4",
-     "imagined": "media/episodes/libero/libero_10_task2_trial0/flow10_imagined.mp4",
+     "real": "media/episodes/libero/libero_goal_task0_trial1/flow10_real.mp4",
+     "imagined": "media/episodes/libero/libero_goal_task0_trial1/flow10_imagined.mp4",
      "success": true,
-     "frames": 71
+     "frames": 36
     },
     "flow1": {
-     "real": "media/episodes/libero/libero_10_task2_trial0/flow1_real.mp4",
-     "imagined": "media/episodes/libero/libero_10_task2_trial0/flow1_imagined.mp4",
+     "real": "media/episodes/libero/libero_goal_task0_trial1/flow1_real.mp4",
+     "imagined": "media/episodes/libero/libero_goal_task0_trial1/flow1_imagined.mp4",
      "success": true,
-     "frames": 66
+     "frames": 33
     },
     "flowft": {
-     "real": "media/episodes/libero/libero_10_task2_trial0/flowft_real.mp4",
-     "imagined": "media/episodes/libero/libero_10_task2_trial0/flowft_imagined.mp4",
+     "real": "media/episodes/libero/libero_goal_task0_trial1/flowft_real.mp4",
+     "imagined": "media/episodes/libero/libero_goal_task0_trial1/flowft_imagined.mp4",
      "success": true,
-     "frames": 65
+     "frames": 31
     },
     "wink": {
-     "real": "media/episodes/libero/libero_10_task2_trial0/wink_real.mp4",
-     "imagined": "media/episodes/libero/libero_10_task2_trial0/wink_imagined.mp4",
+     "real": "media/episodes/libero/libero_goal_task0_trial1/wink_real.mp4",
+     "imagined": "media/episodes/libero/libero_goal_task0_trial1/wink_imagined.mp4",
      "success": true,
-     "frames": 65
+     "frames": 34
     }
    }
   },
   {
-   "id": "libero:libero_spatial_task0_trial0",
-   "bench": "libero",
-   "title": "Pick up the black bowl between the plate and the r",
+   "id": "plus:libero_object_task132_trial0",
+   "bench": "plus",
+   "title": "Background Textures: Pick up the ketchup and place it in the basket",
    "fps": 8,
    "aspect": 2.0,
    "arms": {
     "flow10": {
-     "real": "media/episodes/libero/libero_spatial_task0_trial0/flow10_real.mp4",
-     "imagined": "media/episodes/libero/libero_spatial_task0_trial0/flow10_imagined.mp4",
+     "real": "media/episodes/plus/libero_object_task132_trial0/flow10_real.mp4",
+     "imagined": "media/episodes/plus/libero_object_task132_trial0/flow10_imagined.mp4",
      "success": true,
-     "frames": 21
+     "frames": 43
     },
     "flow1": {
-     "real": "media/episodes/libero/libero_spatial_task0_trial0/flow1_real.mp4",
-     "imagined": "media/episodes/libero/libero_spatial_task0_trial0/flow1_imagined.mp4",
+     "real": "media/episodes/plus/libero_object_task132_trial0/flow1_real.mp4",
+     "imagined": "media/episodes/plus/libero_object_task132_trial0/flow1_imagined.mp4",
      "success": true,
-     "frames": 20
+     "frames": 43
     },
     "flowft": {
-     "real": "media/episodes/libero/libero_spatial_task0_trial0/flowft_real.mp4",
-     "imagined": "media/episodes/libero/libero_spatial_task0_trial0/flowft_imagined.mp4",
+     "real": "media/episodes/plus/libero_object_task132_trial0/flowft_real.mp4",
+     "imagined": "media/episodes/plus/libero_object_task132_trial0/flowft_imagined.mp4",
      "success": true,
-     "frames": 20
+     "frames": 44
     },
     "wink": {
-     "real": "media/episodes/libero/libero_spatial_task0_trial0/wink_real.mp4",
-     "imagined": "media/episodes/libero/libero_spatial_task0_trial0/wink_imagined.mp4",
+     "real": "media/episodes/plus/libero_object_task132_trial0/wink_real.mp4",
+     "imagined": "media/episodes/plus/libero_object_task132_trial0/wink_imagined.mp4",
      "success": true,
-     "frames": 21
+     "frames": 44
     }
    }
   },
@@ -133,68 +166,35 @@
    }
   },
   {
-   "id": "plus:libero_spatial_task2132_trial0",
+   "id": "plus:libero_10_task1007_trial0",
    "bench": "plus",
-   "title": "Light Conditions: Pick up the black bowl between the plate and the r",
+   "title": "Camera Viewpoints: Put both the alphabet soup and the cream cheese box in the basket",
    "fps": 8,
    "aspect": 2.0,
    "arms": {
     "flow10": {
-     "real": "media/episodes/plus/libero_spatial_task2132_trial0/flow10_real.mp4",
-     "imagined": "media/episodes/plus/libero_spatial_task2132_trial0/flow10_imagined.mp4",
+     "real": "media/episodes/plus/libero_10_task1007_trial0/flow10_real.mp4",
+     "imagined": "media/episodes/plus/libero_10_task1007_trial0/flow10_imagined.mp4",
      "success": true,
-     "frames": 22
+     "frames": 154
     },
     "flow1": {
-     "real": "media/episodes/plus/libero_spatial_task2132_trial0/flow1_real.mp4",
-     "imagined": "media/episodes/plus/libero_spatial_task2132_trial0/flow1_imagined.mp4",
+     "real": "media/episodes/plus/libero_10_task1007_trial0/flow1_real.mp4",
+     "imagined": "media/episodes/plus/libero_10_task1007_trial0/flow1_imagined.mp4",
      "success": true,
-     "frames": 21
+     "frames": 93
     },
     "flowft": {
-     "real": "media/episodes/plus/libero_spatial_task2132_trial0/flowft_real.mp4",
-     "imagined": "media/episodes/plus/libero_spatial_task2132_trial0/flowft_imagined.mp4",
+     "real": "media/episodes/plus/libero_10_task1007_trial0/flowft_real.mp4",
+     "imagined": "media/episodes/plus/libero_10_task1007_trial0/flowft_imagined.mp4",
      "success": true,
-     "frames": 21
+     "frames": 77
     },
     "wink": {
-     "real": "media/episodes/plus/libero_spatial_task2132_trial0/wink_real.mp4",
-     "imagined": "media/episodes/plus/libero_spatial_task2132_trial0/wink_imagined.mp4",
+     "real": "media/episodes/plus/libero_10_task1007_trial0/wink_real.mp4",
+     "imagined": "media/episodes/plus/libero_10_task1007_trial0/wink_imagined.mp4",
      "success": true,
-     "frames": 21
-    }
-   }
-  },
-  {
-   "id": "plus:libero_object_task7_trial0",
-   "bench": "plus",
-   "title": "Background Textures: Pick up the alphabet soup and place it in the bask",
-   "fps": 8,
-   "aspect": 2.0,
-   "arms": {
-    "flow10": {
-     "real": "media/episodes/plus/libero_object_task7_trial0/flow10_real.mp4",
-     "imagined": "media/episodes/plus/libero_object_task7_trial0/flow10_imagined.mp4",
-     "success": true,
-     "frames": 46
-    },
-    "flow1": {
-     "real": "media/episodes/plus/libero_object_task7_trial0/flow1_real.mp4",
-     "imagined": "media/episodes/plus/libero_object_task7_trial0/flow1_imagined.mp4",
-     "success": true,
-     "frames": 43
-    },
-    "flowft": {
-     "real": "media/episodes/plus/libero_object_task7_trial0/flowft_real.mp4",
-     "imagined": "media/episodes/plus/libero_object_task7_trial0/flowft_imagined.mp4",
-     "success": true,
-     "frames": 42
-    },
-    "wink": {
-     "real": "media/episodes/plus/libero_object_task7_trial0/wink_real.mp4",
-     "imagined": "media/episodes/plus/libero_object_task7_trial0/wink_imagined.mp4",
-     "success": true,
-     "frames": 43
+     "frames": 76
     }
    }
   }
@@ -271,31 +271,31 @@
    }
   },
   {
-   "id": "libero_windows:libero_goal_3",
+   "id": "libero_windows:libero_object_1",
    "bench": "libero",
-   "title": "Open the top drawer and put the bowl inside",
+   "title": "Pick up the cream cheese and place it in the basket",
    "aspect": 2.0,
    "frames": 9,
    "columns": {
-    "recorded": "media/windows/libero_windows/libero_goal_3/recorded.jpg",
-    "flow10": "media/windows/libero_windows/libero_goal_3/flow10.jpg",
-    "flow1": "media/windows/libero_windows/libero_goal_3/flow1.jpg",
-    "flowft": "media/windows/libero_windows/libero_goal_3/flowft.jpg",
-    "wink": "media/windows/libero_windows/libero_goal_3/wink.jpg"
+    "recorded": "media/windows/libero_windows/libero_object_1/recorded.jpg",
+    "flow10": "media/windows/libero_windows/libero_object_1/flow10.jpg",
+    "flow1": "media/windows/libero_windows/libero_object_1/flow1.jpg",
+    "flowft": "media/windows/libero_windows/libero_object_1/flowft.jpg",
+    "wink": "media/windows/libero_windows/libero_object_1/wink.jpg"
    }
   },
   {
-   "id": "libero_windows:libero_10_2",
+   "id": "libero_windows:libero_spatial_7",
    "bench": "libero",
-   "title": "Turn on the stove and put the moka pot on it",
+   "title": "Pick up the black bowl on the stove and place it on the plate",
    "aspect": 2.0,
    "frames": 9,
    "columns": {
-    "recorded": "media/windows/libero_windows/libero_10_2/recorded.jpg",
-    "flow10": "media/windows/libero_windows/libero_10_2/flow10.jpg",
-    "flow1": "media/windows/libero_windows/libero_10_2/flow1.jpg",
-    "flowft": "media/windows/libero_windows/libero_10_2/flowft.jpg",
-    "wink": "media/windows/libero_windows/libero_10_2/wink.jpg"
+    "recorded": "media/windows/libero_windows/libero_spatial_7/recorded.jpg",
+    "flow10": "media/windows/libero_windows/libero_spatial_7/flow10.jpg",
+    "flow1": "media/windows/libero_windows/libero_spatial_7/flow1.jpg",
+    "flowft": "media/windows/libero_windows/libero_spatial_7/flowft.jpg",
+    "wink": "media/windows/libero_windows/libero_spatial_7/wink.jpg"
    }
   },
   {
@@ -310,6 +310,20 @@
     "flow1": "media/windows/libero_windows/libero_object_4/flow1.jpg",
     "flowft": "media/windows/libero_windows/libero_object_4/flowft.jpg",
     "wink": "media/windows/libero_windows/libero_object_4/wink.jpg"
+   }
+  },
+  {
+   "id": "libero_windows:libero_10_2",
+   "bench": "libero",
+   "title": "Turn on the stove and put the moka pot on it",
+   "aspect": 2.0,
+   "frames": 9,
+   "columns": {
+    "recorded": "media/windows/libero_windows/libero_10_2/recorded.jpg",
+    "flow10": "media/windows/libero_windows/libero_10_2/flow10.jpg",
+    "flow1": "media/windows/libero_windows/libero_10_2/flow1.jpg",
+    "flowft": "media/windows/libero_windows/libero_10_2/flowft.jpg",
+    "wink": "media/windows/libero_windows/libero_10_2/wink.jpg"
    }
   }
  ],
