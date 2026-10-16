@@ -1,6 +1,39 @@
 {
  "episodes": [
   {
+   "id": "libero:libero_goal_task0_trial1",
+   "bench": "libero",
+   "title": "Open the middle drawer of the cabinet",
+   "fps": 8,
+   "aspect": 2.0,
+   "arms": {
+    "flow10": {
+     "real": "media/episodes/libero/libero_goal_task0_trial1/flow10_real.mp4",
+     "imagined": "media/episodes/libero/libero_goal_task0_trial1/flow10_imagined.mp4",
+     "success": true,
+     "frames": 36
+    },
+    "flow1": {
+     "real": "media/episodes/libero/libero_goal_task0_trial1/flow1_real.mp4",
+     "imagined": "media/episodes/libero/libero_goal_task0_trial1/flow1_imagined.mp4",
+     "success": true,
+     "frames": 33
+    },
+    "flowft": {
+     "real": "media/episodes/libero/libero_goal_task0_trial1/flowft_real.mp4",
+     "imagined": "media/episodes/libero/libero_goal_task0_trial1/flowft_imagined.mp4",
+     "success": true,
+     "frames": 31
+    },
+    "wink": {
+     "real": "media/episodes/libero/libero_goal_task0_trial1/wink_real.mp4",
+     "imagined": "media/episodes/libero/libero_goal_task0_trial1/wink_imagined.mp4",
+     "success": true,
+     "frames": 34
+    }
+   }
+  },
+  {
    "id": "libero:libero_spatial_task8_trial1",
    "bench": "libero",
    "title": "Pick up the black bowl next to the plate and place it on the plate",
@@ -67,35 +100,35 @@
    }
   },
   {
-   "id": "libero:libero_goal_task0_trial1",
-   "bench": "libero",
-   "title": "Open the middle drawer of the cabinet",
+   "id": "plus:libero_10_task1007_trial0",
+   "bench": "plus",
+   "title": "Camera Viewpoints: Put both the alphabet soup and the cream cheese box in the basket",
    "fps": 8,
    "aspect": 2.0,
    "arms": {
     "flow10": {
-     "real": "media/episodes/libero/libero_goal_task0_trial1/flow10_real.mp4",
-     "imagined": "media/episodes/libero/libero_goal_task0_trial1/flow10_imagined.mp4",
+     "real": "media/episodes/plus/libero_10_task1007_trial0/flow10_real.mp4",
+     "imagined": "media/episodes/plus/libero_10_task1007_trial0/flow10_imagined.mp4",
      "success": true,
-     "frames": 36
+     "frames": 154
     },
     "flow1": {
-     "real": "media/episodes/libero/libero_goal_task0_trial1/flow1_real.mp4",
-     "imagined": "media/episodes/libero/libero_goal_task0_trial1/flow1_imagined.mp4",
+     "real": "media/episodes/plus/libero_10_task1007_trial0/flow1_real.mp4",
+     "imagined": "media/episodes/plus/libero_10_task1007_trial0/flow1_imagined.mp4",
      "success": true,
-     "frames": 33
+     "frames": 93
     },
     "flowft": {
-     "real": "media/episodes/libero/libero_goal_task0_trial1/flowft_real.mp4",
-     "imagined": "media/episodes/libero/libero_goal_task0_trial1/flowft_imagined.mp4",
+     "real": "media/episodes/plus/libero_10_task1007_trial0/flowft_real.mp4",
+     "imagined": "media/episodes/plus/libero_10_task1007_trial0/flowft_imagined.mp4",
      "success": true,
-     "frames": 31
+     "frames": 77
     },
     "wink": {
-     "real": "media/episodes/libero/libero_goal_task0_trial1/wink_real.mp4",
-     "imagined": "media/episodes/libero/libero_goal_task0_trial1/wink_imagined.mp4",
+     "real": "media/episodes/plus/libero_10_task1007_trial0/wink_real.mp4",
+     "imagined": "media/episodes/plus/libero_10_task1007_trial0/wink_imagined.mp4",
      "success": true,
-     "frames": 34
+     "frames": 76
     }
    }
   },
@@ -162,39 +195,6 @@
      "imagined": "media/episodes/plus/libero_goal_task1007_trial0/wink_imagined.mp4",
      "success": true,
      "frames": 23
-    }
-   }
-  },
-  {
-   "id": "plus:libero_10_task1007_trial0",
-   "bench": "plus",
-   "title": "Camera Viewpoints: Put both the alphabet soup and the cream cheese box in the basket",
-   "fps": 8,
-   "aspect": 2.0,
-   "arms": {
-    "flow10": {
-     "real": "media/episodes/plus/libero_10_task1007_trial0/flow10_real.mp4",
-     "imagined": "media/episodes/plus/libero_10_task1007_trial0/flow10_imagined.mp4",
-     "success": true,
-     "frames": 154
-    },
-    "flow1": {
-     "real": "media/episodes/plus/libero_10_task1007_trial0/flow1_real.mp4",
-     "imagined": "media/episodes/plus/libero_10_task1007_trial0/flow1_imagined.mp4",
-     "success": true,
-     "frames": 93
-    },
-    "flowft": {
-     "real": "media/episodes/plus/libero_10_task1007_trial0/flowft_real.mp4",
-     "imagined": "media/episodes/plus/libero_10_task1007_trial0/flowft_imagined.mp4",
-     "success": true,
-     "frames": 77
-    },
-    "wink": {
-     "real": "media/episodes/plus/libero_10_task1007_trial0/wink_real.mp4",
-     "imagined": "media/episodes/plus/libero_10_task1007_trial0/wink_imagined.mp4",
-     "success": true,
-     "frames": 76
     }
    }
   }

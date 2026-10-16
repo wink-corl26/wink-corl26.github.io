@@ -45,9 +45,9 @@ export type Manifest = {
 export const MEDIA = manifest as Manifest;
 
 export const BENCHES: { id: Bench; label: string; base: string }[] = [
-  { id: 'libero', label: 'LIBERO', base: 'EasyWAM' },
-  { id: 'plus', label: 'LIBERO-Plus', base: 'EasyWAM' },
   { id: 'robocasa', label: 'RoboCasa365', base: 'OpenWAM-α' },
+  { id: 'plus', label: 'LIBERO-Plus', base: 'EasyWAM' },
+  { id: 'libero', label: 'LIBERO', base: 'EasyWAM' },
 ];
 
 export function asset(path: string) {
