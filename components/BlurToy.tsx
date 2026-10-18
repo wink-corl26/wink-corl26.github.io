@@ -75,14 +75,14 @@ export function BlurToy() {
   return (
     <div className="rounded-[var(--radius-lg)] bg-white p-5 ring-1 ring-rule">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-        <div className="inline-flex rounded-full bg-coral-50 p-1 ring-1 ring-rule">
+        <div className="inline-flex rounded-full bg-tint-50 p-1 ring-1 ring-rule">
           {SAMPLERS.map((s) => (
             <button
               key={s.id}
               type="button"
               onClick={() => setSampler(s.id)}
               className={`rounded-full px-3.5 py-1 text-[13px] transition-colors ${
-                sampler === s.id ? 'bg-wine-700 text-on-wine' : 'text-muted hover:text-wine-700'
+                sampler === s.id ? 'bg-brand-700 text-on-brand' : 'text-muted hover:text-brand-700'
               }`}
             >
               {s.label}
@@ -92,17 +92,17 @@ export function BlurToy() {
         <button
           type="button"
           onClick={() => setSeed((x) => x + 1)}
-          className="rounded-full px-3.5 py-1 text-[13px] text-wine-700 ring-1 ring-coral-300 transition-colors hover:bg-coral-50"
+          className="rounded-full px-3.5 py-1 text-[13px] text-brand-700 ring-1 ring-tint-300 transition-colors hover:bg-tint-50"
         >
           Resample noise
         </button>
       </div>
       <svg viewBox={`0 0 ${W} ${H}`} className="block h-auto w-full" role="img" aria-label="Trajectories sampled around an obstacle">
-        <rect x={x0 - 6} y={8} width={x1 - x0 + 12} height={H - 16} rx={10} fill="var(--coral-50)" />
+        <rect x={x0 - 6} y={8} width={x1 - x0 + 12} height={H - 16} rx={10} fill="var(--tint-50)" />
         <path d={path(1)} fill="none" stroke="var(--rule-strong)" strokeWidth={10} strokeLinecap="round" opacity={0.6} />
         <path d={path(-1)} fill="none" stroke="var(--rule-strong)" strokeWidth={10} strokeLinecap="round" opacity={0.6} />
-        <rect x={(x0 + x1) / 2 - 34} y={yc - 34} width={68} height={68} rx={8} fill="var(--wine-800)" />
-        <text x={(x0 + x1) / 2} y={yc + 52} textAnchor="middle" style={{ fontFamily: 'var(--font-mono)', fontSize: 10, fill: 'var(--wine-800)' }}>
+        <rect x={(x0 + x1) / 2 - 34} y={yc - 34} width={68} height={68} rx={8} fill="var(--brand-800)" />
+        <text x={(x0 + x1) / 2} y={yc + 52} textAnchor="middle" style={{ fontFamily: 'var(--font-mono)', fontSize: 10, fill: 'var(--brand-800)' }}>
           obstacle
         </text>
         {amp.map((a, i) => (
@@ -110,13 +110,13 @@ export function BlurToy() {
             key={i}
             d={path(a)}
             fill="none"
-            stroke={collides(a) ? 'var(--coral-400)' : 'var(--wine-600)'}
+            stroke={collides(a) ? 'var(--tint-400)' : 'var(--brand-600)'}
             strokeWidth={1.8}
             opacity={0.75}
           />
         ))}
-        <circle cx={x0} cy={yc} r={7} fill="var(--wine-700)" />
-        <circle cx={x1} cy={yc} r={7} fill="none" stroke="var(--wine-700)" strokeWidth={2} />
+        <circle cx={x0} cy={yc} r={7} fill="var(--brand-700)" />
+        <circle cx={x1} cy={yc} r={7} fill="none" stroke="var(--brand-700)" strokeWidth={2} />
         <text x={x0} y={yc + 26} textAnchor="middle" style={{ fontFamily: 'var(--font-body)', fontSize: 12, fill: 'var(--ink-muted)' }}>
           start
         </text>

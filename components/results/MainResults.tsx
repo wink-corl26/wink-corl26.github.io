@@ -22,7 +22,7 @@ export function MainResults() {
             type="button"
             onClick={() => setMetric(id)}
             className={`rounded-full px-4 py-1.5 text-[13.5px] transition-colors ${
-              metric === id ? 'bg-wine-700 text-on-wine' : 'text-muted hover:text-wine-700'
+              metric === id ? 'bg-brand-700 text-on-brand' : 'text-muted hover:text-brand-700'
             }`}
           >
             {label}
@@ -41,10 +41,10 @@ export function MainResults() {
           return (
             <div key={`${row.benchmark}-${row.base}`} className="grid gap-3 sm:grid-cols-[190px_minmax(0,1fr)] sm:gap-6">
               <div>
-                <p className="display text-[26px] leading-none text-wine-800">{row.benchmark}</p>
+                <p className="display text-[26px] leading-none text-brand-800">{row.benchmark}</p>
                 <p className="mt-1 text-[13px] text-muted">
                   {row.base}
-                  {row.dagger && <sup className="ml-0.5 text-wine-500">†</sup>}
+                  {row.dagger && <sup className="ml-0.5 text-brand-500">†</sup>}
                 </p>
               </div>
               <div className="space-y-1.5">
@@ -55,17 +55,17 @@ export function MainResults() {
                   const bold = a.id !== 'flow10' && v === best;
                   return (
                     <div key={a.id} className="grid grid-cols-[86px_minmax(0,1fr)_56px] items-center gap-3">
-                      <span className={`text-[13px] ${isWink ? 'font-semibold text-wine-700' : 'text-muted'}`}>{a.label}</span>
-                      <div className="relative h-[14px] rounded-[3px] bg-coral-50">
+                      <span className={`text-[13px] ${isWink ? 'font-semibold text-brand-700' : 'text-muted'}`}>{a.label}</span>
+                      <div className="relative h-[14px] rounded-[3px] bg-tint-50">
                         <div
                           className="absolute inset-y-0 left-0 rounded-[3px] transition-[width] duration-700 ease-out"
                           style={{
                             width: `${frac * 100}%`,
-                            background: isWink ? 'var(--wine-700)' : a.id === 'flow10' ? 'var(--coral-300)' : 'var(--coral-200)',
+                            background: isWink ? 'var(--brand-700)' : a.id === 'flow10' ? 'var(--tint-300)' : 'var(--tint-200)',
                           }}
                         />
                       </div>
-                      <span className={`tnum text-right font-mono text-[12.5px] ${bold ? 'font-semibold text-wine-800' : 'text-muted'}`}>
+                      <span className={`tnum text-right font-mono text-[12.5px] ${bold ? 'font-semibold text-brand-800' : 'text-muted'}`}>
                         {metric === 'sr' ? v.toFixed(2) : v.toFixed(1)}
                       </span>
                     </div>
@@ -78,7 +78,7 @@ export function MainResults() {
       </div>
       <p className="mt-7 text-[13px] leading-[1.65] text-muted">
         Flow denotes the released multi-step sampler; Flow-1 uses one step, and Flow FT is a budget-matched one-step fine-tune.
-        {metric === 'sr' && ' Success axes are zoomed to the range of each row.'} <sup className="text-wine-500">†</sup>InternW0-Δ uses video
+        {metric === 'sr' && ' Success axes are zoomed to the range of each row.'} <sup className="text-brand-500">†</sup>InternW0-Δ uses video
         drifting with one-step flow supervision for actions; its FVD is measured on LIBERO.
       </p>
     </div>

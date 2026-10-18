@@ -92,19 +92,19 @@ export function DriftPlayground() {
     const len = Math.hypot(d.x, d.y) * scale;
     if (len < 2) return null;
     const k = Math.min(len, 70) / Math.hypot(d.x, d.y);
-    return <line key={id} x1={r2(from.x)} y1={r2(from.y)} x2={r2(from.x + d.x * k)} y2={r2(from.y + d.y * k)} stroke={color} strokeWidth={1.6} markerEnd={`url(#dp-${color === 'var(--wine-600)' ? 'a' : 'r'})`} />;
+    return <line key={id} x1={r2(from.x)} y1={r2(from.y)} x2={r2(from.x + d.x * k)} y2={r2(from.y + d.y * k)} stroke={color} strokeWidth={1.6} markerEnd={`url(#dp-${color === 'var(--brand-600)' ? 'a' : 'r'})`} />;
   };
 
   return (
     <div className="rounded-[var(--radius-lg)] bg-white p-5 ring-1 ring-rule">
       <div className="mb-4 flex flex-wrap items-center gap-x-5 gap-y-3 text-[13px]">
-        <div className="inline-flex rounded-full bg-coral-50 p-1 ring-1 ring-rule">
+        <div className="inline-flex rounded-full bg-tint-50 p-1 ring-1 ring-rule">
           {([1, 2] as const).map((m) => (
             <button
               key={m}
               type="button"
               onClick={() => setModes(m)}
-              className={`rounded-full px-3.5 py-1 transition-colors ${modes === m ? 'bg-wine-700 text-on-wine' : 'text-muted hover:text-wine-700'}`}
+              className={`rounded-full px-3.5 py-1 transition-colors ${modes === m ? 'bg-brand-700 text-on-brand' : 'text-muted hover:text-brand-700'}`}
             >
               {m === 1 ? 'One cluster of data' : 'Two clusters of data'}
             </button>
@@ -130,7 +130,7 @@ export function DriftPlayground() {
               setTried(true);
               setRunning((r) => !r);
             }}
-            className={`rounded-full bg-wine-700 px-4 py-1 text-on-wine transition-transform hover:scale-[1.03] ${tried ? '' : 'nudge'}`}
+            className={`rounded-full bg-brand-700 px-4 py-1 text-on-brand transition-transform hover:scale-[1.03] ${tried ? '' : 'nudge'}`}
           >
             {running ? 'Pause' : 'Train'}
           </button>
@@ -140,12 +140,12 @@ export function DriftPlayground() {
               setRunning(false);
               setU(START.map((p) => ({ ...p })));
             }}
-            className="rounded-full px-4 py-1 text-wine-700 ring-1 ring-coral-300 hover:bg-coral-50"
+            className="rounded-full px-4 py-1 text-brand-700 ring-1 ring-tint-300 hover:bg-tint-50"
           >
             Reset
           </button>
         </div>
-        {!tried && <span className="text-[12.5px] italic text-wine-500">Press Train to watch the particles drift.</span>}
+        {!tried && <span className="text-[12.5px] italic text-brand-500">Press Train to watch the particles drift.</span>}
       </div>
       <svg
         ref={svg}
@@ -163,13 +163,13 @@ export function DriftPlayground() {
       >
         <defs>
           <marker id="dp-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="var(--wine-600)" />
+            <path d="M0,0 L10,5 L0,10 z" fill="var(--brand-600)" />
           </marker>
           <marker id="dp-r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-            <path d="M0,0 L10,5 L0,10 z" fill="var(--coral-400)" />
+            <path d="M0,0 L10,5 L0,10 z" fill="var(--tint-400)" />
           </marker>
         </defs>
-        <rect x={0} y={0} width={W} height={H} rx={10} fill="var(--coral-50)" />
+        <rect x={0} y={0} width={W} height={H} rx={10} fill="var(--tint-50)" />
         {pos.map((p, k) => (
           <g key={k}>
             <path
@@ -180,19 +180,19 @@ export function DriftPlayground() {
                   return `${i === 0 ? 'M' : 'L'} ${r2(p.x + r * Math.cos(a))} ${r2(p.y + r * Math.sin(a))}`;
                 })
                 .join(' ') + ' Z'}
-              fill="var(--wine-700)"
+              fill="var(--brand-700)"
             />
           </g>
         ))}
         {u.map((p, i) => (
           <g key={i}>
-            {arrow(p, V[i].attract, 'var(--wine-600)', `a${i}`, 0.6)}
-            {arrow(p, V[i].repel, 'var(--coral-400)', `r${i}`, 0.6)}
+            {arrow(p, V[i].attract, 'var(--brand-600)', `a${i}`, 0.6)}
+            {arrow(p, V[i].repel, 'var(--tint-400)', `r${i}`, 0.6)}
             <circle
               cx={r2(p.x)}
               cy={r2(p.y)}
               r={8}
-              fill="var(--wine-900)"
+              fill="var(--brand-900)"
               stroke="white"
               strokeWidth={2}
               style={{ cursor: 'grab' }}
@@ -207,11 +207,11 @@ export function DriftPlayground() {
       </svg>
       <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-[12.5px] text-muted">
         <span>
-          <span className="mr-1.5 inline-block h-0.5 w-4 translate-y-[-3px] bg-wine-600" />
+          <span className="mr-1.5 inline-block h-0.5 w-4 translate-y-[-3px] bg-brand-600" />
           Attraction to data
         </span>
         <span>
-          <span className="mr-1.5 inline-block h-0.5 w-4 translate-y-[-3px] bg-coral-400" />
+          <span className="mr-1.5 inline-block h-0.5 w-4 translate-y-[-3px] bg-tint-400" />
           Repulsion from other particles
         </span>
         <span className="text-faint">

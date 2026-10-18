@@ -1,4 +1,4 @@
-import { TitleEyelid } from '@/components/WinkTitle';
+import { Banner, Title } from '@/components/WinkTitle';
 import { Architecture } from '@/components/arch/Architecture';
 import { Imagination } from '@/components/Imagination';
 import { BlurToy } from '@/components/BlurToy';
@@ -33,10 +33,26 @@ const CONTRIBUTIONS = [
 function Hero() {
   return (
     <header>
-      <div className="px-4 pt-12 sm:pt-16">
-        <TitleEyelid
-          tone="paper"
-          banner={[
+      <div className="pt-16 sm:pt-24">
+        <Title />
+      </div>
+      <div className="flex flex-col items-center gap-5 px-4 pt-6">
+        <p className="text-[17px] text-muted">Anonymous Author(s)</p>
+        <nav className="flex flex-wrap justify-center gap-3" aria-label="Links">
+          <span className="cursor-not-allowed rounded-full px-5 py-2 text-[14px] text-faint ring-1 ring-rule" title="Available after review">
+            Paper
+          </span>
+          <a href="#abstract" className="rounded-full bg-brand-700 px-5 py-2 text-[14px] text-on-brand transition-colors hover:bg-brand-800">
+            Abstract
+          </a>
+          <span className="cursor-not-allowed rounded-full px-5 py-2 text-[14px] text-faint ring-1 ring-rule" title="Available after review">
+            BibTeX
+          </span>
+        </nav>
+      </div>
+      <div className="mt-12">
+        <Banner
+          items={[
             'One forward pass for actions and imagined futures',
             'Teacher-free drifting',
             'Multi-step task success at one step',
@@ -46,20 +62,6 @@ function Hero() {
             '20% faster on a laptop with multiresolution imagination',
           ]}
         />
-      </div>
-      <div className="flex flex-col items-center gap-5 px-4 pt-6">
-        <p className="font-mono text-[12px] uppercase tracking-[0.2em] text-muted">Anonymous Author(s)</p>
-        <nav className="flex flex-wrap justify-center gap-3" aria-label="Links">
-          <span className="cursor-not-allowed rounded-full px-5 py-2 text-[14px] text-faint ring-1 ring-rule" title="Available after review">
-            Paper
-          </span>
-          <a href="#abstract" className="rounded-full bg-wine-700 px-5 py-2 text-[14px] text-on-wine transition-colors hover:bg-wine-800">
-            Abstract
-          </a>
-          <span className="cursor-not-allowed rounded-full px-5 py-2 text-[14px] text-faint ring-1 ring-rule" title="Available after review">
-            BibTeX
-          </span>
-        </nav>
       </div>
     </header>
   );
@@ -81,15 +83,15 @@ export default function Home() {
         </Container>
       </Band>
 
-      <Band id="abstract" tone="blush">
+      <Band id="abstract" tone="tint">
         <Container>
-          <p className="eyebrow mb-5 text-center text-wine-500">Abstract</p>
-          <p className="text-[18px] leading-[1.75] text-wine-900">{ABSTRACT}</p>
-          <ol className="mt-12 space-y-5 border-t border-coral-200 pt-10">
+          <p className="eyebrow mb-5 text-center text-brand-500">Abstract</p>
+          <p className="text-[18px] leading-[1.75] text-brand-900">{ABSTRACT}</p>
+          <ol className="mt-12 space-y-5 border-t border-tint-200 pt-10">
             {CONTRIBUTIONS.map((c, i) => (
               <li key={c.lead} className="grid grid-cols-[34px_minmax(0,1fr)] gap-2">
-                <span className="display pt-0.5 text-[26px] leading-none text-wine-400">{i + 1}</span>
-                <p className="text-[15.5px] leading-[1.7] text-wine-900">
+                <span className="display pt-0.5 text-[26px] leading-none text-brand-400">{i + 1}</span>
+                <p className="text-[15.5px] leading-[1.7] text-brand-900">
                   <strong className="font-semibold">{c.lead}</strong> {c.body}
                 </p>
               </li>
@@ -178,10 +180,10 @@ export default function Home() {
         </Container>
       </Band>
 
-      <Band id="streaming" tone="wine">
+      <Band id="streaming" tone="dark">
         <Container wide>
           <Heading
-            tone="wine"
+            tone="dark"
             kicker="Zero-shot streaming"
             title="Keep moving while the model thinks"
             lede="While the robot executes d previously committed actions, OpenWAM-α predicts the next chunk with those actions fixed as clean tokens (σ = 0) and the remaining H − d actions initialized from noise (σ = 1). Its bidirectional attention lets both future actions and video condition on the committed motion, without retraining. We use d = 8, 400 ms at 20 Hz."
@@ -190,7 +192,7 @@ export default function Home() {
           <div className="mt-8">
             <StreamingNumbers />
           </div>
-          <p className="mt-8 max-w-[70ch] text-[15px] leading-[1.7] text-on-wine-muted">
+          <p className="mt-8 max-w-[70ch] text-[15px] leading-[1.7] text-on-brand-muted">
             Streaming improves RoboCasa success by 9.1 ± 0.9 percentage points, reaching 50.1% with faster TAEHV encoding, and the gain
             extends to held-out kitchens (+7.5 ± 0.9 points).
           </p>
@@ -221,10 +223,10 @@ export default function Home() {
         </Container>
       </Band>
 
-      <Band id="results" tone="blush">
+      <Band id="results" tone="tint">
         <Container wide>
           <Heading
-            tone="blush"
+            tone="tint"
             kicker="Results"
             title="Multi-step success, one-step cost"
             lede="With a single forward pass, WINK matches multi-step task success while largely preserving future-video fidelity, even surpassing the multi-step InternW0-Δ baseline. Neither naive one-step flow nor budget-matched flow fine-tuning recovers comparable video fidelity."
@@ -248,15 +250,15 @@ export default function Home() {
         </Container>
       </Band>
 
-      <Band id="conclusion" tone="wine">
+      <Band id="conclusion" tone="dark">
         <Container>
-          <p className="eyebrow mb-5 text-coral-300">Conclusion</p>
-          <p className="display text-[clamp(26px,3.4vw,36px)] leading-[1.25] text-on-wine">
+          <p className="eyebrow mb-5 text-tint-300">Conclusion</p>
+          <p className="text-[clamp(22px,2.6vw,28px)] font-medium leading-[1.45] text-on-brand">
             WINK is a teacher-free WAM that generates robot actions and imagined futures in a single forward pass. By training with a
             drifting objective, it preserves multi-step sampling&apos;s task success and most of its world fidelity, while substantially
             reducing replanning latency on laptop and GPU deployments.
           </p>
-          <p className="mt-8 text-[16px] leading-[1.7] text-on-wine-muted">
+          <p className="mt-8 text-[16px] leading-[1.7] text-on-brand-muted">
             WINK further enables zero-shot streaming and multi-resolution imagination, bringing world-action models closer to real-time
             deployment on onboard hardware.
           </p>
@@ -264,7 +266,7 @@ export default function Home() {
       </Band>
 
       <footer className="border-t border-rule bg-paper px-4 py-10 text-center">
-        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint">Imagine in a WINK</p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-faint">WINK: World-Action Imagination in a Blink</p>
       </footer>
     </main>
   );

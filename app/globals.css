@@ -1,31 +1,30 @@
 @import "tailwindcss";
 
 :root {
-  --wine-950: #2a0c12;
-  --wine-900: #3d121b;
-  --wine-800: #4f1823;
-  --wine-700: #5a1d29;
-  --wine-600: #742a38;
-  --wine-500: #8f3a4a;
-  --wine-400: #ad5d6a;
-  --coral-400: #cf8a80;
-  --coral-300: #e2aca2;
-  --coral-200: #efcdc5;
-  --coral-100: #f7e4df;
-  --coral-50: #fcf3f0;
-  --paper: #fffaf8;
+  --brand-950: #151b21;
+  --brand-900: #1d252e;
+  --brand-800: #26313c;
+  --brand-700: #33424f;
+  --brand-600: #475a6b;
+  --brand-500: #5d7487;
+  --brand-400: #8196a8;
+  --tint-400: #a2b1be;
+  --tint-300: #c0cbd5;
+  --tint-200: #d9e0e6;
+  --tint-100: #e9edf1;
+  --tint-50: #f5f7f8;
+  --paper: #ffffff;
 
-  --ink: #2c1418;
-  --ink-muted: #6f5156;
-  --ink-faint: #a68c90;
-  --rule: #ecdcd8;
-  --rule-strong: #dcc3be;
+  --ink: #1b2127;
+  --ink-muted: #535d67;
+  --ink-faint: #8e979f;
+  --rule: #e4e8eb;
+  --rule-strong: #ced5db;
 
-  --on-wine: #fdf3f1;
-  --on-wine-muted: #dcb9b6;
-  --on-wine-faint: #b38a8d;
+  --on-brand: #f2f4f6;
+  --on-brand-muted: #b6c1ca;
+  --on-brand-faint: #87949f;
 
-  --font-display: "cofo-cinema1909", Georgia, "Times New Roman", serif;
   --font-body: var(--font-body-face), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: var(--font-mono-face), ui-monospace, "SF Mono", Menlo, monospace;
 
@@ -37,27 +36,26 @@
 }
 
 @theme inline {
-  --color-wine-950: var(--wine-950);
-  --color-wine-900: var(--wine-900);
-  --color-wine-800: var(--wine-800);
-  --color-wine-700: var(--wine-700);
-  --color-wine-600: var(--wine-600);
-  --color-wine-500: var(--wine-500);
-  --color-wine-400: var(--wine-400);
-  --color-coral-400: var(--coral-400);
-  --color-coral-300: var(--coral-300);
-  --color-coral-200: var(--coral-200);
-  --color-coral-100: var(--coral-100);
-  --color-coral-50: var(--coral-50);
+  --color-brand-950: var(--brand-950);
+  --color-brand-900: var(--brand-900);
+  --color-brand-800: var(--brand-800);
+  --color-brand-700: var(--brand-700);
+  --color-brand-600: var(--brand-600);
+  --color-brand-500: var(--brand-500);
+  --color-brand-400: var(--brand-400);
+  --color-tint-400: var(--tint-400);
+  --color-tint-300: var(--tint-300);
+  --color-tint-200: var(--tint-200);
+  --color-tint-100: var(--tint-100);
+  --color-tint-50: var(--tint-50);
   --color-paper: var(--paper);
   --color-ink: var(--ink);
   --color-muted: var(--ink-muted);
   --color-faint: var(--ink-faint);
   --color-rule: var(--rule);
   --color-rule-strong: var(--rule-strong);
-  --color-on-wine: var(--on-wine);
-  --color-on-wine-muted: var(--on-wine-muted);
-  --font-display: var(--font-display);
+  --color-on-brand: var(--on-brand);
+  --color-on-brand-muted: var(--on-brand-muted);
   --font-sans: var(--font-body);
   --font-mono: var(--font-mono);
 }
@@ -83,12 +81,12 @@ body {
   overflow-x: hidden;
 }
 
-::selection { background: color-mix(in srgb, var(--coral-300) 60%, transparent); color: inherit; }
+::selection { background: color-mix(in srgb, var(--tint-300) 60%, transparent); color: inherit; }
 
 button:not(:disabled), [role='tab'], summary, a[href], label[for] { cursor: pointer; }
 
 :focus-visible {
-  outline: 2px solid var(--wine-400);
+  outline: 2px solid var(--brand-400);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
 }
@@ -103,7 +101,7 @@ button:not(:disabled), [role='tab'], summary, a[href], label[for] { cursor: poin
 
 .tnum { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
 
-.display { font-family: var(--font-display); font-weight: 100; font-style: normal; }
+.display { font-family: var(--font-body); font-weight: 600; letter-spacing: -0.02em; font-style: normal; }
 
 .prose-wink p { margin: 0 0 1.05em; }
 .prose-wink p:last-child { margin-bottom: 0; }
@@ -111,7 +109,7 @@ button:not(:disabled), [role='tab'], summary, a[href], label[for] { cursor: poin
 .prose-wink strong { font-weight: 600; color: var(--ink); }
 
 .katex { font-size: 1.04em; }
-.on-wine .katex { color: var(--on-wine); }
+.on-brand .katex { color: var(--on-brand); }
 
 input[type='range'].scrub {
   -webkit-appearance: none;
@@ -122,7 +120,7 @@ input[type='range'].scrub {
 }
 input[type='range'].scrub::-webkit-slider-runnable-track {
   height: 2px;
-  background: linear-gradient(to right, var(--wine-600) var(--fill, 0%), var(--rule-strong) var(--fill, 0%));
+  background: linear-gradient(to right, var(--brand-600) var(--fill, 0%), var(--rule-strong) var(--fill, 0%));
   border-radius: 2px;
 }
 input[type='range'].scrub::-moz-range-track {
@@ -132,7 +130,7 @@ input[type='range'].scrub::-moz-range-track {
 }
 input[type='range'].scrub::-moz-range-progress {
   height: 2px;
-  background: var(--wine-600);
+  background: var(--brand-600);
 }
 input[type='range'].scrub::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -142,20 +140,20 @@ input[type='range'].scrub::-webkit-slider-thumb {
   margin-top: -6px;
   border-radius: 50%;
   background: var(--paper);
-  border: 2px solid var(--wine-600);
-  box-shadow: 0 1px 3px rgba(42, 12, 18, 0.18);
+  border: 2px solid var(--brand-600);
+  box-shadow: 0 1px 3px rgba(21, 27, 33, 0.18);
 }
 input[type='range'].scrub::-moz-range-thumb {
   width: 12px;
   height: 12px;
   border-radius: 50%;
   background: var(--paper);
-  border: 2px solid var(--wine-600);
+  border: 2px solid var(--brand-600);
 }
-.on-wine input[type='range'].scrub::-webkit-slider-runnable-track {
-  background: linear-gradient(to right, var(--coral-200) var(--fill, 0%), color-mix(in srgb, var(--on-wine) 25%, transparent) var(--fill, 0%));
+.on-brand input[type='range'].scrub::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, var(--tint-200) var(--fill, 0%), color-mix(in srgb, var(--on-brand) 25%, transparent) var(--fill, 0%));
 }
-.on-wine input[type='range'].scrub::-webkit-slider-thumb { background: var(--wine-700); border-color: var(--coral-200); }
+.on-brand input[type='range'].scrub::-webkit-slider-thumb { background: var(--brand-700); border-color: var(--tint-200); }
 
 @keyframes rise {
   from { opacity: 0; transform: translateY(8px); }
@@ -164,7 +162,7 @@ input[type='range'].scrub::-moz-range-thumb {
 .rise { animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
 
 @keyframes flash {
-  0%, 45% { color: var(--flash, var(--coral-400)); }
+  0%, 45% { color: var(--flash, var(--tint-400)); }
 }
 .flash { animation: flash 2.2s ease-out; }
 
@@ -175,15 +173,15 @@ input[type='range'].scrub::-moz-range-thumb {
 .banner-track { animation: banner 60s linear infinite; }
 
 @keyframes nudge {
-  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--coral-300) 70%, transparent); }
-  50% { box-shadow: 0 0 0 7px color-mix(in srgb, var(--coral-300) 0%, transparent); }
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--tint-300) 70%, transparent); }
+  50% { box-shadow: 0 0 0 7px color-mix(in srgb, var(--tint-300) 0%, transparent); }
 }
 .nudge { animation: nudge 1.8s ease-in-out infinite; }
 .banner:hover .banner-track { animation-play-state: paused; }
 
 @media (prefers-reduced-motion: reduce) {
   .banner-track { animation: none; }
-  .nudge { animation: none; box-shadow: 0 0 0 2px var(--coral-300); }
+  .nudge { animation: none; box-shadow: 0 0 0 2px var(--tint-300); }
   html { scroll-behavior: auto; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

@@ -28,7 +28,7 @@ function Segmented<T extends string>({
           aria-selected={value === o.id}
           onClick={() => onChange(o.id)}
           className={`rounded-full transition-colors disabled:opacity-35 ${size === 'sm' ? 'px-3 py-1 text-[12.5px]' : 'px-4 py-1.5 text-[14px]'} ${
-            value === o.id ? 'bg-wine-700 text-on-wine' : 'text-muted hover:text-wine-700'
+            value === o.id ? 'bg-brand-700 text-on-brand' : 'text-muted hover:text-brand-700'
           }`}
         >
           {o.label}
@@ -44,7 +44,7 @@ function PlayButton({ playing, onClick }: { playing: boolean; onClick: () => voi
       type="button"
       onClick={onClick}
       aria-label={playing ? 'Pause' : 'Play'}
-      className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-wine-700 text-on-wine transition-transform hover:scale-105"
+      className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-brand-700 text-on-brand transition-transform hover:scale-105"
     >
       {playing ? (
         <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden>
@@ -64,7 +64,7 @@ function Badge({ ok }: { ok: boolean }) {
   return (
     <span
       className={`rounded-full px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.12em] ${
-        ok ? 'bg-coral-100 text-wine-700' : 'bg-white text-faint ring-1 ring-rule'
+        ok ? 'bg-tint-100 text-brand-700' : 'bg-white text-faint ring-1 ring-rule'
       }`}
     >
       {ok ? 'success' : 'failure'}
@@ -148,14 +148,14 @@ function EpisodeView({ ep }: { ep: Episode }) {
           return (
             <figure key={a.id} className="min-w-0">
               <figcaption className="mb-2 flex items-baseline justify-between gap-2">
-                <span className={`text-[14px] ${isWink ? 'font-semibold text-wine-700' : 'text-ink'}`}>
+                <span className={`text-[14px] ${isWink ? 'font-semibold text-brand-700' : 'text-ink'}`}>
                   {a.label}
                   <span className="ml-1.5 font-mono text-[10.5px] text-faint">{a.passes}</span>
                 </span>
                 <Badge ok={clip.success} />
               </figcaption>
-              <div className={`overflow-hidden rounded-[var(--radius-md)] ring-1 ${isWink ? 'ring-wine-500' : 'ring-rule'}`}>
-                <div className="relative bg-wine-950" style={{ aspectRatio: ep.aspect }}>
+              <div className={`overflow-hidden rounded-[var(--radius-md)] ring-1 ${isWink ? 'ring-brand-500' : 'ring-rule'}`}>
+                <div className="relative bg-brand-950" style={{ aspectRatio: ep.aspect }}>
                   <video
                     ref={(el) => {
                       refs.current[`${a.id}-i`] = el;
@@ -166,11 +166,11 @@ function EpisodeView({ ep }: { ep: Episode }) {
                     preload="auto"
                     className="absolute inset-0 h-full w-full object-cover"
                   />
-                  <span className="absolute left-2 top-2 rounded-sm bg-wine-950/70 px-1.5 py-0.5 font-mono text-[9.5px] uppercase tracking-[0.14em] text-coral-100">
+                  <span className="absolute left-2 top-2 rounded-sm bg-brand-950/70 px-1.5 py-0.5 font-mono text-[9.5px] uppercase tracking-[0.14em] text-tint-100">
                     imagined
                   </span>
                 </div>
-                <div className="relative border-t border-white/40 bg-wine-950" style={{ aspectRatio: ep.aspect }}>
+                <div className="relative border-t border-white/40 bg-brand-950" style={{ aspectRatio: ep.aspect }}>
                   <video
                     ref={(el) => {
                       refs.current[`${a.id}-r`] = el;
@@ -181,7 +181,7 @@ function EpisodeView({ ep }: { ep: Episode }) {
                     preload="auto"
                     className="absolute inset-0 h-full w-full object-cover"
                   />
-                  <span className="absolute left-2 top-2 rounded-sm bg-white/80 px-1.5 py-0.5 font-mono text-[9.5px] uppercase tracking-[0.14em] text-wine-800">
+                  <span className="absolute left-2 top-2 rounded-sm bg-white/80 px-1.5 py-0.5 font-mono text-[9.5px] uppercase tracking-[0.14em] text-brand-800">
                     executed
                   </span>
                 </div>
@@ -235,11 +235,11 @@ function WindowView({ w }: { w: WindowClip }) {
         {cols.map((c) => (
           <figure key={c.id} className="min-w-0">
             <figcaption className="mb-2 text-[14px]">
-              <span className={c.id === 'wink' ? 'font-semibold text-wine-700' : c.id === 'recorded' ? 'text-muted' : 'text-ink'}>{c.label}</span>
+              <span className={c.id === 'wink' ? 'font-semibold text-brand-700' : c.id === 'recorded' ? 'text-muted' : 'text-ink'}>{c.label}</span>
               <span className="ml-1.5 font-mono text-[10.5px] text-faint">{c.passes}</span>
             </figcaption>
             <div
-              className={`overflow-hidden rounded-[var(--radius-md)] bg-wine-950 ring-1 ${c.id === 'wink' ? 'ring-wine-500' : 'ring-rule'}`}
+              className={`overflow-hidden rounded-[var(--radius-md)] bg-brand-950 ring-1 ${c.id === 'wink' ? 'ring-brand-500' : 'ring-rule'}`}
               style={{
                 aspectRatio: w.aspect,
                 backgroundImage: `url(${asset(w.columns[c.id]!)})`,
@@ -323,7 +323,7 @@ export function Imagination() {
               type="button"
               onClick={() => setIdx(i)}
               className={`max-w-[280px] truncate rounded-full px-3 py-1 text-[12.5px] ring-1 transition-colors ${
-                i === idx ? 'bg-coral-100 text-wine-800 ring-coral-300' : 'bg-white text-muted ring-rule hover:text-wine-700'
+                i === idx ? 'bg-tint-100 text-brand-800 ring-tint-300' : 'bg-white text-muted ring-rule hover:text-brand-700'
               }`}
             >
               {x.title}

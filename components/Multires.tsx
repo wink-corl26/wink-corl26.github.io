@@ -10,7 +10,7 @@ const COLS = 10;
 function Sprite({ src, frame, frames, aspect, children }: { src: string; frame: number; frames: number; aspect: number; children?: React.ReactNode }) {
   return (
     <div
-      className="relative overflow-hidden rounded-[var(--radius-md)] bg-wine-950 ring-1 ring-rule"
+      className="relative overflow-hidden rounded-[var(--radius-md)] bg-brand-950 ring-1 ring-rule"
       style={{
         aspectRatio: aspect,
         backgroundImage: `url(${asset(src)})`,
@@ -33,20 +33,20 @@ function FoveaOverlay({ blocks, show }: { blocks: number[]; show: boolean }) {
         const on = fine.has(b);
         return (
           <g key={b}>
-            {!on && <rect x={c * 2} y={r * 2} width={2} height={2} fill="var(--wine-900)" opacity={0.42} />}
+            {!on && <rect x={c * 2} y={r * 2} width={2} height={2} fill="var(--brand-900)" opacity={0.42} />}
             <rect
               x={c * 2 + 0.03}
               y={r * 2 + 0.03}
               width={1.94}
               height={1.94}
               fill="none"
-              stroke={on ? 'var(--coral-200)' : 'rgba(255,255,255,0.18)'}
+              stroke={on ? 'var(--tint-200)' : 'rgba(255,255,255,0.18)'}
               strokeWidth={on ? 0.08 : 0.03}
             />
             {on && (
               <>
-                <line x1={c * 2 + 1} y1={r * 2} x2={c * 2 + 1} y2={r * 2 + 2} stroke="var(--coral-200)" strokeWidth={0.025} opacity={0.8} />
-                <line x1={c * 2} y1={r * 2 + 1} x2={c * 2 + 2} y2={r * 2 + 1} stroke="var(--coral-200)" strokeWidth={0.025} opacity={0.8} />
+                <line x1={c * 2 + 1} y1={r * 2} x2={c * 2 + 1} y2={r * 2 + 2} stroke="var(--tint-200)" strokeWidth={0.025} opacity={0.8} />
+                <line x1={c * 2} y1={r * 2 + 1} x2={c * 2 + 2} y2={r * 2 + 1} stroke="var(--tint-200)" strokeWidth={0.025} opacity={0.8} />
               </>
             )}
           </g>
@@ -67,10 +67,10 @@ function GateOverlay({ keep, show }: { keep: number[][]; show: boolean }) {
       {keep.map((row, r) =>
         row.map((k, c) =>
           k ? (
-            <rect key={`${r}-${c}`} x={c + 0.04} y={r + 0.04} width={0.92} height={0.92} fill="none" stroke="var(--coral-200)" strokeWidth={0.05} />
+            <rect key={`${r}-${c}`} x={c + 0.04} y={r + 0.04} width={0.92} height={0.92} fill="none" stroke="var(--tint-200)" strokeWidth={0.05} />
           ) : (
             <g key={`${r}-${c}`}>
-              <rect x={c} y={r} width={1} height={1} fill="var(--wine-900)" opacity={0.5} />
+              <rect x={c} y={r} width={1} height={1} fill="var(--brand-900)" opacity={0.5} />
               <rect x={c} y={r} width={1} height={1} fill="url(#mr-hatch)" />
             </g>
           ),
@@ -111,7 +111,7 @@ function OverlayView({ o }: { o: Overlay }) {
         {panels.map((p) => (
           <figure key={p.key} className="min-w-0">
             <figcaption className="mb-2">
-              <p className={`text-[14px] ${p.key === 'fovea' || p.key === 'gated' ? 'font-semibold text-wine-700' : 'text-ink'}`}>{p.label}</p>
+              <p className={`text-[14px] ${p.key === 'fovea' || p.key === 'gated' ? 'font-semibold text-brand-700' : 'text-ink'}`}>{p.label}</p>
               <p className="font-mono text-[10.5px] text-faint">{p.sub}</p>
             </figcaption>
             <Sprite src={p.src} frame={frame} frames={o.frames} aspect={o.aspect}>
@@ -125,7 +125,7 @@ function OverlayView({ o }: { o: Overlay }) {
           type="button"
           onClick={() => setPlaying((x) => !x)}
           aria-label={playing ? 'Pause' : 'Play'}
-          className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-wine-700 text-on-wine transition-transform hover:scale-105"
+          className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-brand-700 text-on-brand transition-transform hover:scale-105"
         >
           {playing ? (
             <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden>
@@ -153,7 +153,7 @@ function OverlayView({ o }: { o: Overlay }) {
         />
         <span className="tnum w-[96px] font-mono text-[12px] text-muted">{frame === 0 ? 'current frame' : `+${frame * 4} steps`}</span>
         <label className="flex items-center gap-2 text-[13px] text-muted">
-          <input type="checkbox" checked={show} onChange={(e) => setShow(e.target.checked)} className="accent-[var(--wine-700)]" />
+          <input type="checkbox" checked={show} onChange={(e) => setShow(e.target.checked)} className="accent-[var(--brand-700)]" />
           Show token layout
         </label>
       </div>
@@ -176,7 +176,7 @@ export function MultiresViewer() {
               type="button"
               onClick={() => setIdx(i)}
               className={`max-w-[280px] truncate rounded-full px-3 py-1 text-[12.5px] ring-1 transition-colors ${
-                i === idx ? 'bg-coral-100 text-wine-800 ring-coral-300' : 'bg-white text-muted ring-rule hover:text-wine-700'
+                i === idx ? 'bg-tint-100 text-brand-800 ring-tint-300' : 'bg-white text-muted ring-rule hover:text-brand-700'
               }`}
             >
               {x.title}
@@ -212,17 +212,17 @@ export function MultiresTable() {
             const ours = r.method === 'Learned fovea' || r.method === 'Motion gating';
             return (
               <tr key={r.method} className="border-b border-rule last:border-0">
-                <td className={`px-5 py-3 ${ours ? 'font-semibold text-wine-700' : 'text-ink'}`}>{r.method}</td>
+                <td className={`px-5 py-3 ${ours ? 'font-semibold text-brand-700' : 'text-ink'}`}>{r.method}</td>
                 <td className="tnum px-3 py-3 text-right font-mono text-[12.5px] text-muted">{r.tokens}</td>
-                <td className={`tnum px-3 py-3 text-right font-mono text-[12.5px] ${r.method === 'Learned fovea' ? 'font-semibold text-wine-800' : 'text-muted'}`}>
+                <td className={`tnum px-3 py-3 text-right font-mono text-[12.5px] ${r.method === 'Learned fovea' ? 'font-semibold text-brand-800' : 'text-muted'}`}>
                   {r.dsr === 0 ? '0.0' : `${r.dsr.toFixed(1)} ± ${r.se?.toFixed(1)}`}
                 </td>
                 <td className="px-5 py-3">
                   <div className="flex items-center gap-3">
-                    <div className="h-[10px] flex-1 rounded-[2px] bg-coral-50">
+                    <div className="h-[10px] flex-1 rounded-[2px] bg-tint-50">
                       <div
                         className="h-full rounded-[2px]"
-                        style={{ width: `${(r.m2 / maxMs) * 100}%`, background: ours ? 'var(--wine-700)' : r.method === 'Dense' ? 'var(--coral-300)' : 'var(--coral-200)' }}
+                        style={{ width: `${(r.m2 / maxMs) * 100}%`, background: ours ? 'var(--brand-700)' : r.method === 'Dense' ? 'var(--tint-300)' : 'var(--tint-200)' }}
                       />
                     </div>
                     <span className="tnum w-[52px] text-right font-mono text-[12.5px] text-muted">{r.m2} ms</span>

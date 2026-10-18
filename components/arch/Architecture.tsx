@@ -8,11 +8,11 @@ import { Tex } from '@/components/Tex';
 const ActiveCtx = createContext<{ active: string; set: (id: string) => void }>({ active: '', set: () => {} });
 
 const C = {
-  vid: 'var(--wine-600)',
-  vidSoft: 'var(--coral-100)',
-  act: 'var(--coral-400)',
-  dino: 'var(--wine-800)',
-  ink: 'var(--wine-900)',
+  vid: 'var(--brand-600)',
+  vidSoft: 'var(--tint-100)',
+  act: 'var(--tint-400)',
+  dino: 'var(--brand-800)',
+  ink: 'var(--brand-900)',
   soft: 'var(--ink-muted)',
   faint: 'var(--ink-faint)',
   rule: 'var(--rule-strong)',
@@ -45,8 +45,8 @@ function Hot({ id, box, children }: { id: string; box: [number, number, number, 
         width={box[2]}
         height={box[3]}
         rx={10}
-        fill={on ? 'var(--coral-100)' : 'transparent'}
-        stroke={on ? 'var(--coral-300)' : 'transparent'}
+        fill={on ? 'var(--tint-100)' : 'transparent'}
+        stroke={on ? 'var(--tint-300)' : 'transparent'}
         strokeWidth={1}
         style={{ transition: 'fill 200ms ease, stroke 200ms ease' }}
       />
@@ -68,7 +68,7 @@ function Defs() {
       </pattern>
       <pattern id="ar-hw" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
         <rect width="6" height="6" fill="white" />
-        <line x1="0" y1="0" x2="0" y2="6" stroke="var(--wine-400)" strokeWidth="1.6" />
+        <line x1="0" y1="0" x2="0" y2="6" stroke="var(--brand-400)" strokeWidth="1.6" />
       </pattern>
       <pattern id="ar-hs" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
         <rect width="5" height="5" fill="white" />
@@ -144,7 +144,7 @@ function Cells({
 function VFrame({ x, y, ox }: { x: number; y: number; ox: number }) {
   return (
     <g>
-      <rect x={x} y={y} width={56} height={42} rx={3} fill="var(--coral-50)" stroke={C.vid} strokeWidth={1} />
+      <rect x={x} y={y} width={56} height={42} rx={3} fill="var(--tint-50)" stroke={C.vid} strokeWidth={1} />
       <circle cx={x + ox} cy={y + 28} r={7} fill={C.vid} opacity={0.8} />
     </g>
   );
@@ -189,7 +189,7 @@ function PanelA() {
       <line x1={220} y1={176} x2={368} y2={150} stroke={C.ink} strokeWidth={1.3} markerEnd="url(#ar-arrow)" />
       <line x1={220} y1={278} x2={368} y2={278} stroke={C.ink} strokeWidth={1.3} markerEnd="url(#ar-arrow)" />
       <Hot id="a-video" box={[364, 86, 172, 102]}>
-        <rect x={374} y={96} width={152} height={82} rx={8} fill="var(--coral-50)" stroke={C.vid} strokeWidth={1.4} />
+        <rect x={374} y={96} width={152} height={82} rx={8} fill="var(--tint-50)" stroke={C.vid} strokeWidth={1.4} />
         <text x={450} y={133} textAnchor="middle" style={{ ...T.box, fill: C.vid }}>
           Video
         </text>
@@ -198,8 +198,8 @@ function PanelA() {
         </text>
       </Hot>
       <Hot id="a-action" box={[364, 244, 172, 70]}>
-        <rect x={374} y={254} width={152} height={50} rx={8} fill="var(--coral-50)" stroke={C.act} strokeWidth={1.4} />
-        <text x={450} y={284} textAnchor="middle" style={{ ...T.box, fill: 'var(--wine-500)' }}>
+        <rect x={374} y={254} width={152} height={50} rx={8} fill="var(--tint-50)" stroke={C.act} strokeWidth={1.4} />
+        <text x={450} y={284} textAnchor="middle" style={{ ...T.box, fill: 'var(--brand-500)' }}>
           Action expert
         </text>
       </Hot>
@@ -243,14 +243,14 @@ function PanelB() {
       </Hot>
       <line x1={118} y1={72} x2={160} y2={72} stroke={C.ink} strokeWidth={1.2} markerEnd="url(#ar-arrow)" />
       <Hot id="b-decode" box={[158, 50, 96, 46]}>
-        <rect x={164} y={56} width={84} height={34} rx={6} fill="var(--coral-50)" stroke={C.vid} />
+        <rect x={164} y={56} width={84} height={34} rx={6} fill="var(--tint-50)" stroke={C.vid} />
         <text x={206} y={78} textAnchor="middle" style={{ ...T.lab, fontSize: 14 }}>
           decode
         </text>
       </Hot>
       <line x1={250} y1={72} x2={274} y2={72} stroke={C.ink} strokeWidth={1.2} markerEnd="url(#ar-arrow)" />
       <Hot id="b-dino" box={[272, 50, 100, 46]}>
-        <rect x={278} y={56} width={88} height={34} rx={6} fill="var(--coral-100)" stroke={C.dino} />
+        <rect x={278} y={56} width={88} height={34} rx={6} fill="var(--tint-100)" stroke={C.dino} />
         <text x={322} y={78} textAnchor="middle" style={{ ...T.lab, fontSize: 14, fill: C.dino }}>
           DINOv2
         </text>
@@ -258,21 +258,21 @@ function PanelB() {
       <line x1={368} y1={72} x2={392} y2={72} stroke={C.ink} strokeWidth={1.2} markerEnd="url(#ar-arrow)" />
       <Hot id="b-patch" box={[386, 6, 134, 136]}>
         {[3, 2, 1].map((k) => (
-          <rect key={k} x={398 + 6 * k} y={34 - 6 * k} width={5 * c} height={4 * c} rx={2} fill="var(--coral-50)" stroke={C.rule} />
+          <rect key={k} x={398 + 6 * k} y={34 - 6 * k} width={5 * c} height={4 * c} rx={2} fill="var(--tint-50)" stroke={C.rule} />
         ))}
         <rect x={398} y={34} width={5 * c} height={4 * c} rx={2} fill="white" stroke={C.vid} strokeWidth={0.8} />
-        <Cells x={398} y={34} cols={5} rows={4} c={c} fill="var(--coral-100)" on={[[1, 3]]} onFill={C.dino} />
+        <Cells x={398} y={34} cols={5} rows={4} c={c} fill="var(--tint-100)" on={[[1, 3]]} onFill={C.dino} />
         <text x={445.5} y={132} textAnchor="middle" style={T.note}>
           patch p
         </text>
       </Hot>
       <Hot id="b-chunks" box={[566, 4, 286, 142]}>
         {[3, 2, 1].map((k) => (
-          <rect key={k} x={584 + 5 * k} y={44 - 5 * k} width={12 * 14} height={5 * 14} rx={2} fill="var(--coral-50)" stroke={C.rule} />
+          <rect key={k} x={584 + 5 * k} y={44 - 5 * k} width={12 * 14} height={5 * 14} rx={2} fill="var(--tint-50)" stroke={C.rule} />
         ))}
         <rect x={584} y={44} width={12 * 14} height={5 * 14} rx={2} fill="white" stroke={C.act} strokeWidth={0.8} />
-        <Cells x={584} y={44} cols={12} rows={5} c={14} fill="var(--coral-100)" on={Array.from({ length: 12 }, (_, i) => [2, i] as [number, number])} onFill={C.act} />
-        <text x={778} y={83} style={{ ...T.note, fill: 'var(--wine-500)' }}>
+        <Cells x={584} y={44} cols={12} rows={5} c={14} fill="var(--tint-100)" on={Array.from({ length: 12 }, (_, i) => [2, i] as [number, number])} onFill={C.act} />
+        <text x={778} y={83} style={{ ...T.note, fill: 'var(--brand-500)' }}>
           dim. j
         </text>
         <text x={668} y={22} textAnchor="middle" style={T.note}>
@@ -287,7 +287,7 @@ function PanelB() {
         attract
       </text>
       <line x1={150} y1={160} x2={190} y2={160} stroke={C.act} strokeWidth={1.4} markerEnd="url(#ar-arrow-a)" />
-      <text x={198} y={165} style={{ ...T.note, fill: 'var(--wine-500)' }}>
+      <text x={198} y={165} style={{ ...T.note, fill: 'var(--brand-500)' }}>
         repel
       </text>
       <Hot id="b-vfield" box={[22, 176, 392, 172]}>
@@ -361,23 +361,23 @@ function PanelC() {
         <text x={150} y={98} textAnchor="end" style={T.note}>
           model
         </text>
-        <rect x={sx(0)} y={42} width={sx(0.39) - sx(0)} height={24} fill="var(--coral-200)" />
+        <rect x={sx(0)} y={42} width={sx(0.39) - sx(0)} height={24} fill="var(--tint-200)" />
         <text x={(sx(0) + sx(0.39)) / 2} y={59} textAnchor="middle" style={{ ...T.note, fill: C.ink }}>
           chunk k
         </text>
         <rect x={sx(0.39)} y={82} width={sx(0.6) - sx(0.39)} height={24} rx={4} fill={C.vid} />
-        <text x={(sx(0.39) + sx(0.6)) / 2} y={99} textAnchor="middle" style={{ ...T.note, fill: 'var(--on-wine)' }}>
+        <text x={(sx(0.39) + sx(0.6)) / 2} y={99} textAnchor="middle" style={{ ...T.note, fill: 'var(--on-brand)' }}>
           pass k+1
         </text>
-        <rect x={sx(0.6)} y={42} width={sx(1) - sx(0.6)} height={24} fill="var(--coral-200)" />
+        <rect x={sx(0.6)} y={42} width={sx(1) - sx(0.6)} height={24} fill="var(--tint-200)" />
         <text x={(sx(0.6) + sx(1)) / 2} y={59} textAnchor="middle" style={{ ...T.note, fill: C.ink }}>
           chunk k+1
         </text>
       </Hot>
       <Hot id="c-wait" box={[sx(0.39) - 6, 36, sx(0.6) - sx(0.39) + 12, 36]}>
-        <rect x={sx(0.39)} y={42} width={sx(0.6) - sx(0.39)} height={24} fill="url(#ar-hw)" stroke="var(--wine-400)" />
+        <rect x={sx(0.39)} y={42} width={sx(0.6) - sx(0.39)} height={24} fill="url(#ar-hw)" stroke="var(--brand-400)" />
         <rect x={(sx(0.39) + sx(0.6)) / 2 - 30} y={46} width={60} height={16} fill="white" />
-        <text x={(sx(0.39) + sx(0.6)) / 2} y={59} textAnchor="middle" style={{ ...T.note, fill: 'var(--wine-500)' }}>
+        <text x={(sx(0.39) + sx(0.6)) / 2} y={59} textAnchor="middle" style={{ ...T.note, fill: 'var(--brand-500)' }}>
           waits
         </text>
       </Hot>
@@ -391,33 +391,33 @@ function PanelC() {
         <text x={150} y={206} textAnchor="end" style={T.note}>
           model
         </text>
-        <rect x={sx(0)} y={150} width={sx(0.2) - sx(0)} height={24} fill="var(--coral-200)" />
+        <rect x={sx(0)} y={150} width={sx(0.2) - sx(0)} height={24} fill="var(--tint-200)" />
         <text x={(sx(0) + sx(0.2)) / 2} y={167} textAnchor="middle" style={{ ...T.note, fill: C.ink }}>
           chunk k
         </text>
-        <rect x={sx(0.39)} y={150} width={sx(0.79) - sx(0.39)} height={24} fill="var(--coral-200)" />
+        <rect x={sx(0.39)} y={150} width={sx(0.79) - sx(0.39)} height={24} fill="var(--tint-200)" />
         <text x={(sx(0.39) + sx(0.79)) / 2} y={167} textAnchor="middle" style={{ ...T.note, fill: C.ink }}>
           chunk k+1
         </text>
-        <rect x={sx(0.79)} y={150} width={sx(1) - sx(0.79)} height={24} fill="var(--coral-100)" stroke="var(--coral-200)" strokeDasharray="3 3" />
+        <rect x={sx(0.79)} y={150} width={sx(1) - sx(0.79)} height={24} fill="var(--tint-100)" stroke="var(--tint-200)" strokeDasharray="3 3" />
         <text x={(sx(0.79) + sx(1)) / 2} y={167} textAnchor="middle" style={{ ...T.note, fill: C.soft }}>
           chunk k+2
         </text>
         <line x1={sx(0.79)} y1={128} x2={sx(0.79)} y2={150} stroke={C.faint} strokeDasharray="2 3" />
-        <line x1={sx(0.79)} y1={134} x2={sx(1)} y2={134} stroke="var(--wine-500)" strokeWidth={1} markerStart="url(#ar-arrow)" markerEnd="url(#ar-arrow)" />
-        <text x={(sx(0.79) + sx(1)) / 2} y={128} textAnchor="middle" style={{ ...T.note, fontSize: 12, fill: 'var(--wine-500)' }}>
+        <line x1={sx(0.79)} y1={134} x2={sx(1)} y2={134} stroke="var(--brand-500)" strokeWidth={1} markerStart="url(#ar-arrow)" markerEnd="url(#ar-arrow)" />
+        <text x={(sx(0.79) + sx(1)) / 2} y={128} textAnchor="middle" style={{ ...T.note, fontSize: 12, fill: 'var(--brand-500)' }}>
           time saved
         </text>
       </Hot>
       <Hot id="c-commit" box={[sx(0.2) - 6, 144, sx(0.39) - sx(0.2) + 12, 36]}>
         <rect x={sx(0.2)} y={150} width={sx(0.39) - sx(0.2)} height={24} fill={C.vid} opacity={0.85} />
-        <text x={(sx(0.2) + sx(0.39)) / 2} y={167} textAnchor="middle" style={{ ...T.note, fill: 'var(--on-wine)' }}>
+        <text x={(sx(0.2) + sx(0.39)) / 2} y={167} textAnchor="middle" style={{ ...T.note, fill: 'var(--on-brand)' }}>
           committed
         </text>
       </Hot>
       <Hot id="c-pass" box={[sx(0.2) - 6, 184, sx(0.39) - sx(0.2) + 12, 36]}>
-        <rect x={sx(0.2)} y={190} width={sx(0.39) - sx(0.2)} height={24} rx={4} fill="var(--wine-800)" />
-        <text x={(sx(0.2) + sx(0.39)) / 2} y={207} textAnchor="middle" style={{ ...T.note, fill: 'var(--on-wine)' }}>
+        <rect x={sx(0.2)} y={190} width={sx(0.39) - sx(0.2)} height={24} rx={4} fill="var(--brand-800)" />
+        <text x={(sx(0.2) + sx(0.39)) / 2} y={207} textAnchor="middle" style={{ ...T.note, fill: 'var(--on-brand)' }}>
           pass k+1
         </text>
       </Hot>
@@ -435,7 +435,7 @@ function PanelC() {
         <text x={(sx(0.2) + sx(0.39)) / 2} y={306} textAnchor="middle" style={{ ...T.note, fill: C.vid }}>
           d clean, σ = 0
         </text>
-        <text x={(sx(0.39) + sx(1)) / 2} y={306} textAnchor="middle" style={{ ...T.note, fill: 'var(--wine-500)' }}>
+        <text x={(sx(0.39) + sx(1)) / 2} y={306} textAnchor="middle" style={{ ...T.note, fill: 'var(--brand-500)' }}>
           H − d noise, σ = 1
         </text>
       </Hot>
@@ -459,7 +459,7 @@ function PanelD() {
   return (
     <>
       <Hot id="d-dense" box={[ox[0] - 14, 10, W + 28, H + 52]}>
-        <Cells x={ox[0]} y={oy} cols={12} rows={10} c={c} fill="var(--coral-400)" />
+        <Cells x={ox[0]} y={oy} cols={12} rows={10} c={c} fill="var(--tint-400)" />
         <text x={ox[0] + W / 2} y={oy + H + 24} textAnchor="middle" style={T.note}>
           dense
         </text>
@@ -471,9 +471,9 @@ function PanelD() {
           const x = ox[1] + bc * 2 * c;
           const y = oy + br * 2 * c;
           return FOVEA.includes(bi) ? (
-            <Cells key={bi} x={x} y={y} cols={2} rows={2} c={c} fill="var(--coral-400)" />
+            <Cells key={bi} x={x} y={y} cols={2} rows={2} c={c} fill="var(--tint-400)" />
           ) : (
-            <rect key={bi} x={x + 0.75} y={y + 0.75} width={2 * c - 1.5} height={2 * c - 1.5} rx={1.5} fill="var(--coral-100)" stroke="var(--coral-300)" strokeWidth={0.8} />
+            <rect key={bi} x={x + 0.75} y={y + 0.75} width={2 * c - 1.5} height={2 * c - 1.5} rx={1.5} fill="var(--tint-100)" stroke="var(--tint-300)" strokeWidth={0.8} />
           );
         })}
         <text x={ox[1] + W / 2} y={oy + H + 24} textAnchor="middle" style={T.note}>
@@ -490,7 +490,7 @@ function PanelD() {
               width={c - 1.5}
               height={c - 1.5}
               rx={1}
-              fill={gated(r, k) ? 'var(--coral-400)' : 'url(#ar-hs)'}
+              fill={gated(r, k) ? 'var(--tint-400)' : 'url(#ar-hs)'}
               stroke={gated(r, k) ? 'none' : 'var(--rule-strong)'}
               strokeWidth={0.5}
             />
@@ -505,9 +505,9 @@ function PanelD() {
       </Hot>
       <Hot id="d-rows" box={[26, 200, 820, 146]}>
         {[
-          { label: 'dense', n: 240, fill: 'var(--coral-400)', stroke: 'var(--coral-400)' },
-          { label: 'foveated', n: 132, fill: 'var(--coral-400)', stroke: 'var(--coral-400)', split: 96 },
-          { label: 'gated', n: 128, fill: 'var(--coral-400)', stroke: 'var(--coral-400)' },
+          { label: 'dense', n: 240, fill: 'var(--tint-400)', stroke: 'var(--tint-400)' },
+          { label: 'foveated', n: 132, fill: 'var(--tint-400)', stroke: 'var(--tint-400)', split: 96 },
+          { label: 'gated', n: 128, fill: 'var(--tint-400)', stroke: 'var(--tint-400)' },
         ].map((r, i) => (
           <g key={r.label}>
             <text x={40} y={238 + i * 38} style={T.lab}>
@@ -516,7 +516,7 @@ function PanelD() {
             {r.split ? (
               <>
                 <rect x={170} y={224 + i * 38} width={r.split * 2.4} height={20} fill={r.fill} stroke={r.stroke} strokeWidth={0.6} />
-                <rect x={170 + r.split * 2.4} y={224 + i * 38} width={(r.n - r.split) * 2.4} height={20} fill="var(--coral-100)" stroke="var(--coral-300)" strokeWidth={0.8} />
+                <rect x={170 + r.split * 2.4} y={224 + i * 38} width={(r.n - r.split) * 2.4} height={20} fill="var(--tint-100)" stroke="var(--tint-300)" strokeWidth={0.8} />
               </>
             ) : (
               <rect x={170} y={224 + i * 38} width={r.n * 2.4} height={20} fill={r.fill} stroke={r.stroke} strokeWidth={0.6} opacity={0.85} />
@@ -556,7 +556,7 @@ export function Architecture({ initial = 'a' }: { initial?: PanelId }) {
     if (!section) return;
     const heading = section.matches('h2, h3') ? section : section.querySelector<HTMLElement>('h2, h3') ?? section;
     section.scrollIntoView({ block: 'start' });
-    heading.style.setProperty('--flash', heading.closest('.on-wine') ? 'var(--coral-300)' : 'var(--coral-400)');
+    heading.style.setProperty('--flash', heading.closest('.on-brand') ? 'var(--tint-300)' : 'var(--tint-400)');
     heading.classList.remove('flash');
     void heading.offsetWidth;
     heading.classList.add('flash');
@@ -588,7 +588,7 @@ export function Architecture({ initial = 'a' }: { initial?: PanelId }) {
             aria-selected={panel === p.id}
             onClick={() => choose(p.id)}
             className={`rounded-full px-4 py-1.5 text-[13.5px] ring-1 transition-colors ${
-              panel === p.id ? 'bg-wine-700 text-on-wine ring-wine-700' : 'bg-paper text-muted ring-rule hover:text-wine-700'
+              panel === p.id ? 'bg-brand-700 text-on-brand ring-brand-700' : 'bg-paper text-muted ring-rule hover:text-brand-700'
             }`}
           >
             <span className="mr-1.5 font-mono text-[11px] opacity-70">{p.label}</span>
@@ -607,7 +607,7 @@ export function Architecture({ initial = 'a' }: { initial?: PanelId }) {
                 onClick={() => setActive('a-eq')}
                 aria-pressed={active === 'a-eq'}
                 className={`rounded-[10px] px-5 py-1.5 text-[16px] text-muted ring-1 transition-colors ${
-                  active === 'a-eq' ? 'bg-coral-100 ring-coral-300' : 'bg-transparent ring-transparent'
+                  active === 'a-eq' ? 'bg-tint-100 ring-tint-300' : 'bg-transparent ring-transparent'
                 }`}
               >
                 <Tex>{'(\\hat A_t, \\hat Z_t) = \\varepsilon - v_\\theta(\\varepsilon, 1, c_t)'}</Tex>
@@ -621,17 +621,17 @@ export function Architecture({ initial = 'a' }: { initial?: PanelId }) {
           <p className="mt-2 px-1 font-mono text-[11px] tracking-wide text-faint">Hover or tap any block.</p>
         </div>
         <aside className="lg:sticky lg:top-6 lg:self-start">
-          <div key={active} className="rise rounded-[var(--radius-lg)] bg-coral-50 p-5 ring-1 ring-rule">
-            <p className="eyebrow mb-2 text-wine-500">
+          <div key={active} className="rise rounded-[var(--radius-lg)] bg-tint-50 p-5 ring-1 ring-rule">
+            <p className="eyebrow mb-2 text-brand-500">
               {PANELS.find((p) => p.id === detail.panel)?.label} {PANELS.find((p) => p.id === detail.panel)?.title}
             </p>
-            <h4 className="display mb-4 text-[30px] leading-none text-wine-800">{detail.title}</h4>
+            <h4 className="display mb-4 text-[30px] leading-none text-brand-800">{detail.title}</h4>
             {detail.visual && <div className="mb-4 rounded-[var(--radius-md)] bg-white p-3 ring-1 ring-rule">{detail.visual}</div>}
             <p className="text-[14px] leading-[1.7] text-ink">{detail.body}</p>
             <button
               type="button"
               onClick={() => jump(more.target)}
-              className="group mt-5 inline-flex items-center gap-2 border-t border-rule pt-4 text-[13.5px] font-medium text-wine-700 transition-colors hover:text-wine-500"
+              className="group mt-5 inline-flex items-center gap-2 border-t border-rule pt-4 text-[13.5px] font-medium text-brand-700 transition-colors hover:text-brand-500"
             >
               Read more: {more.label}
               <span aria-hidden className="transition-transform group-hover:translate-y-0.5">
@@ -649,7 +649,7 @@ export function Architecture({ initial = 'a' }: { initial?: PanelId }) {
               figure.current?.scrollIntoView({ block: 'start' });
               setAway(false);
             }}
-            className="rise pointer-events-auto rounded-full bg-wine-700 px-4 py-2 text-[13px] text-on-wine shadow-lg ring-1 ring-wine-800 transition-colors hover:bg-wine-800"
+            className="rise pointer-events-auto rounded-full bg-brand-700 px-4 py-2 text-[13px] text-on-brand shadow-lg ring-1 ring-brand-800 transition-colors hover:bg-brand-800"
           >
             Back to figure ↑
           </button>

@@ -12,7 +12,7 @@ export function BibTeX() {
   const [copied, setCopied] = useState(false);
   return (
     <div className="relative">
-      <pre className="overflow-x-auto rounded-[var(--radius-lg)] bg-coral-50 p-5 font-mono text-[12.5px] leading-[1.7] text-wine-900 ring-1 ring-rule">
+      <pre className="overflow-x-auto rounded-[var(--radius-lg)] bg-tint-50 p-5 font-mono text-[12.5px] leading-[1.7] text-brand-900 ring-1 ring-rule">
         {ENTRY}
       </pre>
       <button
@@ -23,7 +23,7 @@ export function BibTeX() {
             window.setTimeout(() => setCopied(false), 1600);
           });
         }}
-        className="absolute right-3 top-3 rounded-full bg-white px-3 py-1 text-[12px] text-wine-700 ring-1 ring-rule transition-colors hover:bg-coral-100"
+        className="absolute right-3 top-3 rounded-full bg-white px-3 py-1 text-[12px] text-brand-700 ring-1 ring-rule transition-colors hover:bg-tint-100"
       >
         {copied ? 'Copied' : 'Copy'}
       </button>

@@ -9,10 +9,10 @@ function Mask({ va, av }: { va: boolean; av: boolean }) {
   );
   return (
     <span className="inline-grid grid-cols-2 gap-1" aria-hidden>
-      {cell(true, 'var(--wine-600)')}
-      {cell(va, 'var(--wine-600)')}
-      {cell(av, 'var(--coral-400)')}
-      {cell(true, 'var(--coral-400)')}
+      {cell(true, 'var(--brand-600)')}
+      {cell(va, 'var(--brand-600)')}
+      {cell(av, 'var(--tint-400)')}
+      {cell(true, 'var(--tint-400)')}
     </span>
   );
 }
@@ -44,7 +44,7 @@ export function Backbones() {
             <th className="px-5 py-4" />
             {BACKBONES.map((b) => (
               <th key={b.name} className="px-5 py-4 font-normal">
-                <span className="display text-[26px] leading-none text-wine-800">{b.name}</span>
+                <span className="display text-[26px] leading-none text-brand-800">{b.name}</span>
               </th>
             ))}
           </tr>

@@ -43,7 +43,7 @@ export function LatencyLadder() {
               type="button"
               onClick={() => setDevice(d.id)}
               className={`rounded-full px-4 py-1.5 text-[13.5px] transition-colors ${
-                device === d.id ? 'bg-wine-700 text-on-wine' : 'text-muted hover:text-wine-700'
+                device === d.id ? 'bg-brand-700 text-on-brand' : 'text-muted hover:text-brand-700'
               }`}
             >
               {d.label}
@@ -57,7 +57,7 @@ export function LatencyLadder() {
               type="button"
               onClick={() => setMeasure(x.id)}
               className={`rounded-full px-3 py-1 text-[12.5px] transition-colors ${
-                measure === x.id ? 'bg-coral-100 text-wine-800' : 'text-muted hover:text-wine-700'
+                measure === x.id ? 'bg-tint-100 text-brand-800' : 'text-muted hover:text-brand-700'
               }`}
             >
               {x.label}
@@ -71,7 +71,7 @@ export function LatencyLadder() {
       <div className="space-y-6">
         {rows.map((r) => (
           <div key={r.model} className="grid gap-2 sm:grid-cols-[150px_minmax(0,1fr)_72px] sm:items-center sm:gap-5">
-            <p className="display text-[24px] leading-none text-wine-800">{r.model}</p>
+            <p className="display text-[24px] leading-none text-brand-800">{r.model}</p>
             <div className="space-y-1.5">
               {(
                 [
@@ -80,18 +80,18 @@ export function LatencyLadder() {
                 ] as const
               ).map(([label, v, ours]) => (
                 <div key={label} className="grid grid-cols-[64px_minmax(0,1fr)] items-center gap-3">
-                  <span className={`text-[12.5px] ${ours ? 'font-semibold text-wine-700' : 'text-muted'}`}>{label}</span>
+                  <span className={`text-[12.5px] ${ours ? 'font-semibold text-brand-700' : 'text-muted'}`}>{label}</span>
                   {v === null ? (
                     <span className="font-mono text-[11.5px] text-faint">{ours ? 'not adapted' : 'no video at inference'}</span>
                   ) : (
                     <div className="relative h-[18px]">
                       <div
                         className="absolute inset-y-0 left-0 rounded-[3px] transition-[width] duration-700 ease-out"
-                        style={{ width: `${pos(v)}%`, background: ours ? 'var(--wine-700)' : 'var(--coral-200)' }}
+                        style={{ width: `${pos(v)}%`, background: ours ? 'var(--brand-700)' : 'var(--tint-200)' }}
                       />
                       <span
                         className={`tnum absolute top-1/2 -translate-y-1/2 whitespace-nowrap font-mono text-[11.5px] transition-[left] duration-700 ease-out ${
-                          pos(v) > 72 ? `-translate-x-full pr-2 ${ours ? 'text-on-wine' : 'text-wine-900'}` : 'pl-2 text-ink'
+                          pos(v) > 72 ? `-translate-x-full pr-2 ${ours ? 'text-on-brand' : 'text-brand-900'}` : 'pl-2 text-ink'
                         }`}
                         style={{ left: `${pos(v)}%` }}
                       >
@@ -103,7 +103,7 @@ export function LatencyLadder() {
                 </div>
               ))}
             </div>
-            <p className="tnum text-left font-mono text-[15px] text-wine-700 sm:text-right">
+            <p className="tnum text-left font-mono text-[15px] text-brand-700 sm:text-right">
               {r.rel && r.ours ? `${(r.rel / r.ours).toFixed(1)}×` : ''}
             </p>
           </div>

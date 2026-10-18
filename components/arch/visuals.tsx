@@ -4,12 +4,12 @@ import { useState } from 'react';
 import { r2 } from '@/lib/num';
 
 const C = {
-  vid: 'var(--wine-600)',
-  vidSoft: 'var(--coral-100)',
-  act: 'var(--coral-400)',
-  actSoft: 'var(--coral-200)',
-  dino: 'var(--wine-800)',
-  ink: 'var(--wine-900)',
+  vid: 'var(--brand-600)',
+  vidSoft: 'var(--tint-100)',
+  act: 'var(--tint-400)',
+  actSoft: 'var(--tint-200)',
+  dino: 'var(--brand-800)',
+  ink: 'var(--brand-900)',
   soft: 'var(--ink-muted)',
   faint: 'var(--ink-faint)',
   rule: 'var(--rule-strong)',
@@ -30,14 +30,14 @@ function Frame({ children, h = 190 }: { children: React.ReactNode; h?: number })
 
 function Pill<T extends string>({ value, options, onChange }: { value: T; options: { id: T; label: string }[]; onChange: (v: T) => void }) {
   return (
-    <div className="mb-3 inline-flex rounded-full bg-coral-50 p-0.5 ring-1 ring-rule">
+    <div className="mb-3 inline-flex rounded-full bg-tint-50 p-0.5 ring-1 ring-rule">
       {options.map((o) => (
         <button
           key={o.id}
           type="button"
           onClick={() => onChange(o.id)}
           className={`rounded-full px-3 py-1 text-[11.5px] transition-colors ${
-            value === o.id ? 'bg-wine-700 text-on-wine' : 'text-muted hover:text-wine-700'
+            value === o.id ? 'bg-brand-700 text-on-brand' : 'text-muted hover:text-brand-700'
           }`}
         >
           {o.label}
@@ -182,7 +182,7 @@ export function AttentionMask() {
               x={ox + cl.c * size + size / 2}
               y={oy + cl.r * size + size / 2 + 4}
               textAnchor="middle"
-              style={{ ...label, fill: cl.on ? 'var(--on-wine)' : C.faint, fontSize: 11 }}
+              style={{ ...label, fill: cl.on ? 'var(--on-brand)' : C.faint, fontSize: 11 }}
             >
               {cl.on ? 'reads' : 'masked'}
             </text>
@@ -249,7 +249,7 @@ function Box({ x, vals, title, tone }: { x: number; vals: number[]; title: strin
       {vals.map((v, i) => (
         <g key={i}>
           <rect x={x + (i % 2) * 34} y={40 + Math.floor(i / 2) * 34} width={32} height={32} rx={3} fill={tone} opacity={0.9} />
-          <text x={x + (i % 2) * 34 + 16} y={40 + Math.floor(i / 2) * 34 + 21} textAnchor="middle" style={{ ...labelInk, fill: 'var(--wine-950)', fontSize: 12 }}>
+          <text x={x + (i % 2) * 34 + 16} y={40 + Math.floor(i / 2) * 34 + 21} textAnchor="middle" style={{ ...labelInk, fill: 'var(--brand-950)', fontSize: 12 }}>
             {v}
           </text>
         </g>
@@ -276,11 +276,11 @@ export function NoiseLift() {
         ]}
       />
       <Frame h={150}>
-        <Box x={12} vals={eps} title="noise ε (mean 0)" tone="var(--coral-100)" />
+        <Box x={12} vals={eps} title="noise ε (mean 0)" tone="var(--tint-100)" />
         <text x={100} y={78} style={mono}>
           pool
         </text>
-        <rect x={136} y={56} width={40} height={40} rx={3} fill="var(--coral-200)" />
+        <rect x={136} y={56} width={40} height={40} rx={3} fill="var(--tint-200)" />
         <text x={156} y={81} textAnchor="middle" style={{ ...labelInk, fontSize: 11 }}>
           {fix ? 'x̂ = 5' : 'h = −5'}
         </text>
@@ -290,7 +290,7 @@ export function NoiseLift() {
         <text x={196} y={78} style={mono}>
           lift
         </text>
-        <Box x={250} vals={out} title={fix ? 'x̂ (target 5 5 5 5)' : 'ε − U(h): noise leaks'} tone={fix ? 'var(--coral-300)' : 'var(--coral-100)'} />
+        <Box x={250} vals={out} title={fix ? 'x̂ (target 5 5 5 5)' : 'ε − U(h): noise leaks'} tone={fix ? 'var(--tint-300)' : 'var(--tint-100)'} />
       </Frame>
     </div>
   );
@@ -298,10 +298,10 @@ export function NoiseLift() {
 
 export function RowBudget({ highlight }: { highlight: 'dense' | 'all' }) {
   const rows = [
-    { label: 'dense', n: 240, fill: 'var(--coral-400)', stroke: 'var(--coral-400)' },
-    { label: 'uniform coarse', n: 60, fill: 'var(--coral-100)', stroke: 'var(--coral-300)' },
-    { label: 'foveated', n: 132, fill: 'var(--coral-400)', stroke: 'var(--coral-400)' },
-    { label: 'gated', n: 128, fill: 'var(--coral-400)', stroke: 'var(--coral-400)' },
+    { label: 'dense', n: 240, fill: 'var(--tint-400)', stroke: 'var(--tint-400)' },
+    { label: 'uniform coarse', n: 60, fill: 'var(--tint-100)', stroke: 'var(--tint-300)' },
+    { label: 'foveated', n: 132, fill: 'var(--tint-400)', stroke: 'var(--tint-400)' },
+    { label: 'gated', n: 128, fill: 'var(--tint-400)', stroke: 'var(--tint-400)' },
   ];
   const shown = highlight === 'dense' ? rows.slice(0, 1) : rows;
   return (
@@ -361,7 +361,7 @@ export function StreamingRule({ mode }: { mode: 'sync' | 'stream' | 'prefix' }) 
       <defs>
         <pattern id="sr-w" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
           <rect width="5" height="5" fill={C.paper} />
-          <line x1="0" y1="0" x2="0" y2="5" stroke="var(--wine-400)" strokeWidth="1.4" />
+          <line x1="0" y1="0" x2="0" y2="5" stroke="var(--brand-400)" strokeWidth="1.4" />
         </pattern>
       </defs>
       <text x={10} y={34} style={label}>
@@ -372,11 +372,11 @@ export function StreamingRule({ mode }: { mode: 'sync' | 'stream' | 'prefix' }) 
       </text>
       {sync ? (
         <>
-          <rect x={56} y={22} width={110} height={18} fill="var(--coral-200)" />
-          <rect x={166} y={22} width={64} height={18} fill="url(#sr-w)" stroke="var(--wine-400)" strokeWidth={0.6} />
-          <rect x={230} y={22} width={118} height={18} fill="var(--coral-200)" />
+          <rect x={56} y={22} width={110} height={18} fill="var(--tint-200)" />
+          <rect x={166} y={22} width={64} height={18} fill="url(#sr-w)" stroke="var(--brand-400)" strokeWidth={0.6} />
+          <rect x={230} y={22} width={118} height={18} fill="var(--tint-200)" />
           <rect x={166} y={58} width={64} height={18} rx={3} fill={C.vid} />
-          <text x={198} y={71} textAnchor="middle" style={{ ...label, fill: 'var(--on-wine)' }}>
+          <text x={198} y={71} textAnchor="middle" style={{ ...label, fill: 'var(--on-brand)' }}>
             pass
           </text>
           <text x={198} y={100} textAnchor="middle" style={labelInk}>
@@ -385,14 +385,14 @@ export function StreamingRule({ mode }: { mode: 'sync' | 'stream' | 'prefix' }) 
         </>
       ) : (
         <>
-          <rect x={56} y={22} width={74} height={18} fill="var(--coral-200)" />
+          <rect x={56} y={22} width={74} height={18} fill="var(--tint-200)" />
           <rect x={130} y={22} width={64} height={18} fill={C.vid} />
-          <text x={162} y={35} textAnchor="middle" style={{ ...label, fill: 'var(--on-wine)' }}>
+          <text x={162} y={35} textAnchor="middle" style={{ ...label, fill: 'var(--on-brand)' }}>
             d
           </text>
-          <rect x={194} y={22} width={154} height={18} fill="var(--coral-200)" />
+          <rect x={194} y={22} width={154} height={18} fill="var(--tint-200)" />
           <rect x={130} y={58} width={56} height={18} rx={3} fill={C.vid} />
-          <text x={158} y={71} textAnchor="middle" style={{ ...label, fill: 'var(--on-wine)' }}>
+          <text x={158} y={71} textAnchor="middle" style={{ ...label, fill: 'var(--on-brand)' }}>
             pass
           </text>
           <text x={198} y={100} textAnchor="middle" style={labelInk}>
@@ -420,7 +420,7 @@ export function RouterPipeline() {
     <Frame h={196}>
       {steps.map((st, i) => (
         <g key={st}>
-          <rect x={6 + i * 71} y={10} width={62} height={30} rx={4} fill={i === 4 ? 'var(--coral-400)' : 'var(--coral-50)'} stroke={C.rule} />
+          <rect x={6 + i * 71} y={10} width={62} height={30} rx={4} fill={i === 4 ? 'var(--tint-400)' : 'var(--tint-50)'} stroke={C.rule} />
           <text x={37 + i * 71} y={29} textAnchor="middle" style={{ ...labelInk, fontSize: 10 }}>
             {st}
           </text>
@@ -435,11 +435,11 @@ export function RouterPipeline() {
         return fine.has(b) ? (
           <g key={b}>
             {[0, 1, 2, 3].map((q) => (
-              <rect key={q} x={x + (q % 2) * (B / 2) + 0.6} y={y + Math.floor(q / 2) * (B / 2) + 0.6} width={B / 2 - 1.2} height={B / 2 - 1.2} rx={0.8} fill="var(--coral-400)" />
+              <rect key={q} x={x + (q % 2) * (B / 2) + 0.6} y={y + Math.floor(q / 2) * (B / 2) + 0.6} width={B / 2 - 1.2} height={B / 2 - 1.2} rx={0.8} fill="var(--tint-400)" />
             ))}
           </g>
         ) : (
-          <rect key={b} x={x + 0.6} y={y + 0.6} width={B - 1.2} height={B - 1.2} rx={1.2} fill="var(--coral-100)" stroke="var(--coral-300)" strokeWidth={0.8} />
+          <rect key={b} x={x + 0.6} y={y + 0.6} width={B - 1.2} height={B - 1.2} rx={1.2} fill="var(--tint-100)" stroke="var(--tint-300)" strokeWidth={0.8} />
         );
       })}
       <text x={gx + 2.5 * B} y={gy + 6 * B + 14} textAnchor="middle" style={mono}>
@@ -448,7 +448,7 @@ export function RouterPipeline() {
       {lines.map(([t, swatch], i) => (
         <g key={t}>
           {swatch && (
-            <rect x={150} y={gy + 6 + i * 20} width={10} height={10} rx={1.5} fill={i === 0 ? 'var(--coral-400)' : 'var(--coral-100)'} stroke="var(--coral-300)" strokeWidth={0.8} />
+            <rect x={150} y={gy + 6 + i * 20} width={10} height={10} rx={1.5} fill={i === 0 ? 'var(--tint-400)' : 'var(--tint-100)'} stroke="var(--tint-300)" strokeWidth={0.8} />
           )}
           <text x={swatch ? 168 : 150} y={gy + 15 + i * 20} style={swatch ? labelInk : mono}>
             {t}
@@ -480,13 +480,13 @@ export function GatingFill() {
             y={14 + r * 13}
             width={12}
             height={12}
-            fill={keep(r, c) ? 'var(--coral-400)' : 'url(#gf-h)'}
+            fill={keep(r, c) ? 'var(--tint-400)' : 'url(#gf-h)'}
             stroke={C.rule}
             strokeWidth={0.4}
           />
         )),
       )}
-      <rect x={196} y={30} width={12} height={12} fill="var(--coral-400)" />
+      <rect x={196} y={30} width={12} height={12} fill="var(--tint-400)" />
       <text x={214} y={40} style={labelInk}>
         computed (predicted to move)
       </text>
@@ -514,12 +514,12 @@ export function DriftLossMini({ mode }: { mode: 'mean' | 'particles' | 'chain' |
       <Frame h={110}>
         {steps.map((s, i) => (
           <g key={s}>
-            <rect x={8 + i * 58} y={24} width={48} height={30} rx={4} fill={i === 2 || i === 3 ? 'var(--coral-100)' : 'var(--coral-50)'} stroke={C.rule} />
+            <rect x={8 + i * 58} y={24} width={48} height={30} rx={4} fill={i === 2 || i === 3 ? 'var(--tint-100)' : 'var(--tint-50)'} stroke={C.rule} />
             <text x={32 + i * 58} y={43} textAnchor="middle" style={{ ...labelInk, fontSize: 11 }}>
               {s}
             </text>
             {i < 5 && <path d={`M ${56 + i * 58} 34 l 10 0`} stroke={C.ink} />}
-            {i < 5 && <path d={`M ${66 + i * 58} 46 l -10 0`} stroke="var(--wine-400)" strokeDasharray="2 2" />}
+            {i < 5 && <path d={`M ${66 + i * 58} 46 l -10 0`} stroke="var(--brand-400)" strokeDasharray="2 2" />}
           </g>
         ))}
         <text x={8} y={80} style={label}>
@@ -537,7 +537,7 @@ export function DriftLossMini({ mode }: { mode: 'mean' | 'particles' | 'chain' |
         {Array.from({ length: 7 }).map((_, j) => (
           <g key={j}>
             {Array.from({ length: 32 }).map((__, h) => (
-              <rect key={h} x={60 + h * 9} y={12 + j * 15} width={8} height={13} fill={j === 2 ? C.act : 'var(--coral-100)'} />
+              <rect key={h} x={60 + h * 9} y={12 + j * 15} width={8} height={13} fill={j === 2 ? C.act : 'var(--tint-100)'} />
             ))}
             <text x={52} y={22 + j * 15} textAnchor="end" style={mono}>
               {['Δx', 'Δy', 'Δz', 'Δrx', 'Δry', 'Δrz', 'g'][j]}
@@ -568,7 +568,7 @@ export function DriftLossMini({ mode }: { mode: 'mean' | 'particles' | 'chain' |
         <path d="M 30 66 C 90 66, 120 16, 170 18 S 260 66, 320 66" fill="none" stroke={C.vid} strokeWidth={1.6} />
         <path d="M 30 66 C 90 66, 120 116, 170 114 S 260 66, 320 66" fill="none" stroke={C.vid} strokeWidth={1.6} />
         <path d="M 30 66 L 320 66" fill="none" stroke={C.act} strokeWidth={2} strokeDasharray="5 4" />
-        <rect x={152} y={53} width={36} height={26} rx={3} fill="var(--coral-100)" stroke="var(--coral-300)" />
+        <rect x={152} y={53} width={36} height={26} rx={3} fill="var(--tint-100)" stroke="var(--tint-300)" />
         <text x={170} y={96} textAnchor="middle" style={mono}>
           obstacle
         </text>
@@ -579,7 +579,7 @@ export function DriftLossMini({ mode }: { mode: 'mean' | 'particles' | 'chain' |
           two plausible paths
         </text>
         <line x1={188} y1={146} x2={212} y2={146} stroke={C.act} strokeWidth={2} strokeDasharray="5 4" />
-        <text x={218} y={150} style={{ ...label, fill: 'var(--coral-400)' }}>
+        <text x={218} y={150} style={{ ...label, fill: 'var(--tint-400)' }}>
           one-step flow: the mean
         </text>
       </Frame>
@@ -603,7 +603,7 @@ export function DriftLossMini({ mode }: { mode: 'mean' | 'particles' | 'chain' |
       {mode === 'particles' && (
         <>
           {modes.map((m, i) => (
-            <circle key={i} cx={m.x} cy={m.y} r={22} fill="var(--coral-50)" stroke={C.rule} strokeDasharray="3 3" />
+            <circle key={i} cx={m.x} cy={m.y} r={22} fill="var(--tint-50)" stroke={C.rule} strokeDasharray="3 3" />
           ))}
           {particles.map((p, i) => {
             const m = modes[i % 2];
@@ -645,7 +645,7 @@ export function DriftLossMini({ mode }: { mode: 'mean' | 'particles' | 'chain' |
           <text x={180} y={140} style={{ ...label, fill: C.vid }}>
             attract
           </text>
-          <text x={230} y={140} style={{ ...label, fill: 'var(--coral-400)' }}>
+          <text x={230} y={140} style={{ ...label, fill: 'var(--tint-400)' }}>
             repel
           </text>
         </>

@@ -46,8 +46,8 @@ export function Staircase() {
   return (
     <div className="rounded-[var(--radius-lg)] bg-white p-5 ring-1 ring-rule">
       <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
-        <p className="display text-[24px] leading-none text-wine-800">{chain.title}</p>
-        <div className="inline-flex rounded-full bg-coral-50 p-1 ring-1 ring-rule">
+        <p className="display text-[24px] leading-none text-brand-800">{chain.title}</p>
+        <div className="inline-flex rounded-full bg-tint-50 p-1 ring-1 ring-rule">
           {(
             [
               ['m2', 'Laptop'],
@@ -59,7 +59,7 @@ export function Staircase() {
               type="button"
               onClick={() => setWhich(id)}
               className={`rounded-full px-3.5 py-1 text-[13px] transition-colors ${
-                which === id ? 'bg-wine-700 text-on-wine' : 'text-muted hover:text-wine-700'
+                which === id ? 'bg-brand-700 text-on-brand' : 'text-muted hover:text-brand-700'
               }`}
             >
               {label}
@@ -89,7 +89,7 @@ export function Staircase() {
                 width={sw - 16}
                 height={bot - yy}
                 rx={4}
-                fill={i === 0 ? 'var(--coral-200)' : last ? 'var(--wine-700)' : 'var(--wine-500)'}
+                fill={i === 0 ? 'var(--tint-200)' : last ? 'var(--brand-700)' : 'var(--brand-500)'}
                 opacity={s.relative ? 0.85 : 1}
                 style={{ transition: 'y 600ms ease, height 600ms ease' }}
               />
@@ -97,19 +97,19 @@ export function Staircase() {
                 <path
                   d={`M ${x - 8} ${y(prev.ms)} L ${x + 8} ${y(prev.ms)} L ${x + 8} ${yy}`}
                   fill="none"
-                  stroke="var(--wine-400)"
+                  stroke="var(--brand-400)"
                   strokeDasharray="3 3"
                 />
               )}
-              <text x={x + sw / 2} y={yy - 10} textAnchor="middle" style={{ fontFamily: 'var(--font-mono)', fontSize: 13, fill: 'var(--wine-900)' }}>
+              <text x={x + sw / 2} y={yy - 10} textAnchor="middle" style={{ fontFamily: 'var(--font-mono)', fontSize: 13, fill: 'var(--brand-900)' }}>
                 {s.relative ? '−20%' : s.ms >= 1000 ? `${(s.ms / 1000).toFixed(2)} s` : `${s.ms} ms`}
               </text>
               {prev && (
-                <text x={x + sw / 2} y={yy + 20} textAnchor="middle" style={{ fontFamily: 'var(--font-mono)', fontSize: 11.5, fill: 'var(--on-wine)' }}>
+                <text x={x + sw / 2} y={yy + 20} textAnchor="middle" style={{ fontFamily: 'var(--font-mono)', fontSize: 11.5, fill: 'var(--on-brand)' }}>
                   {(prev.ms / s.ms).toFixed(prev.ms / s.ms < 2 ? 2 : 1)}×
                 </text>
               )}
-              <text x={x + sw / 2} y={bot + 22} textAnchor="middle" style={{ fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 600, fill: 'var(--wine-800)' }}>
+              <text x={x + sw / 2} y={bot + 22} textAnchor="middle" style={{ fontFamily: 'var(--font-body)', fontSize: 14, fontWeight: 600, fill: 'var(--brand-800)' }}>
                 {s.label}
               </text>
               <text x={x + sw / 2} y={bot + 40} textAnchor="middle" style={{ fontFamily: 'var(--font-body)', fontSize: 12, fill: 'var(--ink-muted)' }}>

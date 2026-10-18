@@ -83,7 +83,7 @@ export function WinkWord({
   return (
     <span
       className={`relative inline-flex select-none items-baseline leading-none ${className}`}
-      style={{ fontWeight: 100, gap: '0.045em', ...style }}
+      style={{ gap: '0.03em', ...style }}
       onMouseEnter={wink}
       onFocus={wink}
       onClick={wink}
@@ -96,7 +96,7 @@ export function WinkWord({
         I
         <span
           className="pointer-events-none absolute left-1/2 -translate-x-1/2"
-          style={{ top: '0.005em', width: '0.24em', height: '0.19em' }}
+          style={{ top: '-0.25em', width: '0.48em', height: '0.38em' }}
         >
           <Tittle t={t} color={dotColor} />
         </span>
@@ -107,97 +107,35 @@ export function WinkWord({
   );
 }
 
-export function TitleEyelid({ tone = 'wine', banner, tag = false }: { tone?: 'wine' | 'paper'; banner?: string[]; tag?: boolean }) {
-  const aspect = tag ? 512 : 470;
-  const onWine = tone === 'wine';
-  const text = onWine ? 'var(--on-wine)' : 'var(--wine-800)';
+export function Title() {
   return (
-    <h1 className="display relative mx-auto w-full max-w-[520px]" style={{ containerType: 'inline-size' }}>
-      <span className="sr-only">Imagine in a WINK: One-Step World Action Models via Drifting</span>
-      <div className="relative" style={{ aspectRatio: `1000 / ${aspect}` }} aria-hidden>
-        <svg viewBox={`0 60 1000 ${aspect}`} className="absolute inset-0 h-full w-full overflow-visible">
-          <defs>
-            <path id="text-top" d="M 230 200 Q 500 30 770 200" />
-            <path id="text-bot" d={tag ? 'M 40 468 Q 500 584 960 468' : 'M 40 420 Q 500 540 960 420'} />
-          </defs>
-          <text
-            fill={onWine ? 'var(--on-wine-muted)' : 'var(--wine-500)'}
-            style={{ fontFamily: 'var(--font-display)', fontWeight: 100, fontSize: 50, letterSpacing: '0.04em' }}
-          >
-            <textPath href="#text-top" startOffset="50%" textAnchor="middle">
-              Imagine in a
-            </textPath>
-          </text>
-          <text
-            fill={text}
-            style={{ fontFamily: 'var(--font-display)', fontWeight: 100, fontSize: 52, letterSpacing: '0.02em' }}
-          >
-            <textPath href="#text-bot" startOffset="50%" textAnchor="middle">
-              One-Step World Action Models via Drifting
-            </textPath>
-          </text>
-        </svg>
-        {banner && <Banner items={banner} />}
-        <div className="absolute inset-0 grid place-items-center" style={{ paddingTop: '3cqw' }}>
-          <span className="relative" style={{ paddingInline: tag ? '3.4cqw' : '2.2cqw' }}>
-            {banner && (
-              <span
-                aria-hidden
-                className="absolute inset-x-0"
-                style={
-                  tag
-                    ? {
-                        top: 'calc(50% - 14cqw)',
-                        height: '25.5cqw',
-                        background: onWine ? 'var(--wine-800)' : 'var(--paper)',
-                        border: `1.5px solid ${onWine ? 'var(--coral-200)' : 'var(--wine-700)'}`,
-                        borderRadius: '3px',
-                      }
-                    : {
-                        top: '50%',
-                        transform: 'translateY(-50%)',
-                        height: 'calc(max(34px, 6.6cqw) + 2px)',
-                        background: onWine ? 'var(--wine-800)' : 'var(--paper)',
-                      }
-                }
-              />
-            )}
-            <WinkWord
-              className="rise"
-              dotColor={onWine ? 'var(--coral-200)' : 'var(--wine-500)'}
-              style={{ fontSize: '27cqw', color: onWine ? 'var(--on-wine)' : 'var(--wine-700)' }}
-            />
-          </span>
-        </div>
-      </div>
+    <h1
+      className="display mx-auto max-w-[1180px] px-4 text-center text-ink"
+      style={{ fontSize: 'clamp(29px, 4.4vw, 52px)', lineHeight: 1.15, textWrap: 'balance' }}
+    >
+      <span className="sr-only">WINK: World-Action Imagination in a Blink</span>
+      <span aria-hidden>
+        <WinkWord className="rise" dotColor="var(--brand-500)" style={{ color: 'var(--brand-700)' }} />
+        <span className="rise">: World-Action Imagination in a Blink</span>
+      </span>
     </h1>
   );
 }
 
-function Banner({ items }: { items: string[] }) {
+export function Banner({ items }: { items: string[] }) {
   const run = (key: string) => (
     <span key={key} className="flex shrink-0 items-center" aria-hidden={key === 'b'}>
       {items.map((x) => (
         <span key={x} className="flex shrink-0 items-center">
           <span className="whitespace-nowrap px-7">{x}</span>
-          <span className="h-[5px] w-[5px] rotate-45 bg-coral-200 opacity-80" />
+          <span className="h-[5px] w-[5px] rotate-45 bg-tint-300" />
         </span>
       ))}
     </span>
   );
   return (
-    <div
-      className="banner absolute left-1/2 flex items-center overflow-hidden"
-      style={{
-        top: 'calc(50% + 1.5cqw)',
-        width: '100vw',
-        height: 'max(34px, 6.6cqw)',
-        transform: 'translate(-50%, -50%)',
-        background:
-          'linear-gradient(to right, transparent, color-mix(in srgb, var(--wine-700) 88%, transparent) 14%, color-mix(in srgb, var(--wine-700) 88%, transparent) 86%, transparent)',
-      }}
-    >
-      <div className="banner-track flex w-max font-mono text-[12px] uppercase tracking-[0.16em] text-on-wine">
+    <div className="banner flex h-9 items-center overflow-hidden border-y border-rule bg-tint-50">
+      <div className="banner-track flex w-max font-mono text-[11.5px] uppercase tracking-[0.16em] text-brand-700">
         {run('a')}
         {run('b')}
       </div>

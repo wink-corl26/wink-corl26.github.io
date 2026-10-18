@@ -48,10 +48,10 @@ function executed(segs: Seg[], time: number) {
 }
 
 const FILL: Record<Seg['kind'], string> = {
-  move: 'var(--coral-300)',
-  commit: 'var(--wine-600)',
+  move: 'var(--tint-300)',
+  commit: 'var(--brand-600)',
   wait: 'url(#st-w)',
-  infer: 'var(--wine-800)',
+  infer: 'var(--brand-800)',
 };
 
 export function StreamingTimeline() {
@@ -90,13 +90,13 @@ export function StreamingTimeline() {
   return (
     <div className="rounded-[var(--radius-lg)] bg-white p-5 ring-1 ring-rule">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-        <div className="inline-flex rounded-full bg-coral-50 p-1 ring-1 ring-rule">
+        <div className="inline-flex rounded-full bg-tint-50 p-1 ring-1 ring-rule">
           {LATENCIES.map((o) => (
             <button
               key={o.id}
               type="button"
               onClick={() => setLat(o.id)}
-              className={`rounded-full px-3.5 py-1 text-[13px] transition-colors ${lat === o.id ? 'bg-wine-700 text-on-wine' : 'text-muted hover:text-wine-700'}`}
+              className={`rounded-full px-3.5 py-1 text-[13px] transition-colors ${lat === o.id ? 'bg-brand-700 text-on-brand' : 'text-muted hover:text-brand-700'}`}
             >
               {o.label} · {o.ms.toLocaleString('en-US')} ms
             </button>
@@ -110,14 +110,14 @@ export function StreamingTimeline() {
         <defs>
           <pattern id="st-w" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
             <rect width="6" height="6" fill="white" />
-            <line x1="0" y1="0" x2="0" y2="6" stroke="var(--wine-400)" strokeWidth="1.5" />
+            <line x1="0" y1="0" x2="0" y2="6" stroke="var(--brand-400)" strokeWidth="1.5" />
           </pattern>
         </defs>
         {lanes.map((l, i) => {
           const y = 22 + i * 96;
           return (
             <g key={l.mode}>
-              <text x={0} y={y + 14} style={{ fontFamily: 'var(--font-body)', fontSize: 15, fontWeight: 600, fill: i ? 'var(--wine-700)' : 'var(--wine-900)' }}>
+              <text x={0} y={y + 14} style={{ fontFamily: 'var(--font-body)', fontSize: 15, fontWeight: 600, fill: i ? 'var(--brand-700)' : 'var(--brand-900)' }}>
                 {l.mode === 'sync' ? 'Synchronous' : 'Streaming'}
               </text>
               <text x={0} y={y + 32} style={{ fontFamily: 'var(--font-body)', fontSize: 11.5, fill: 'var(--ink-muted)' }}>
@@ -129,7 +129,7 @@ export function StreamingTimeline() {
               <text x={x0 - 10} y={y + 41} textAnchor="end" style={{ fontFamily: 'var(--font-mono)', fontSize: 10.5, fill: 'var(--ink-faint)' }}>
                 model
               </text>
-              <rect x={x0} y={y} width={W - x0 - 20} height={22} fill="var(--coral-50)" rx={3} />
+              <rect x={x0} y={y} width={W - x0 - 20} height={22} fill="var(--tint-50)" rx={3} />
               {bar(l.robot, y, 22)}
               {bar(l.model, y + 32, 12)}
               <text x={W - 20} y={y + 66} textAnchor="end" style={{ fontFamily: 'var(--font-mono)', fontSize: 11.5, fill: 'var(--ink-muted)' }}>
@@ -139,7 +139,7 @@ export function StreamingTimeline() {
             </g>
           );
         })}
-        <line x1={x(shown)} x2={x(shown)} y1={14} y2={200} stroke="var(--wine-800)" strokeWidth={1} />
+        <line x1={x(shown)} x2={x(shown)} y1={14} y2={200} stroke="var(--brand-800)" strokeWidth={1} />
         <text x={x0} y={226} style={{ fontFamily: 'var(--font-mono)', fontSize: 11, fill: 'var(--ink-faint)' }}>
           0 s
         </text>
@@ -149,19 +149,19 @@ export function StreamingTimeline() {
       </svg>
       <div className="mt-2 flex flex-wrap gap-x-5 gap-y-1 text-[12.5px] text-muted">
         <span>
-          <span className="mr-1.5 inline-block h-2.5 w-4 translate-y-[1px] bg-coral-300" />
+          <span className="mr-1.5 inline-block h-2.5 w-4 translate-y-[1px] bg-tint-300" />
           executing
         </span>
         <span>
-          <span className="mr-1.5 inline-block h-2.5 w-4 translate-y-[1px] bg-wine-600" />
+          <span className="mr-1.5 inline-block h-2.5 w-4 translate-y-[1px] bg-brand-600" />
           executing committed actions while the next pass runs
         </span>
         <span>
-          <span className="mr-1.5 inline-block h-2.5 w-4 translate-y-[1px] ring-1 ring-wine-400" style={{ background: 'repeating-linear-gradient(45deg, white 0 3px, var(--wine-400) 3px 4.5px)' }} />
+          <span className="mr-1.5 inline-block h-2.5 w-4 translate-y-[1px] ring-1 ring-brand-400" style={{ background: 'repeating-linear-gradient(45deg, white 0 3px, var(--brand-400) 3px 4.5px)' }} />
           waiting for inference
         </span>
         <span>
-          <span className="mr-1.5 inline-block h-2.5 w-4 translate-y-[1px] rounded-sm bg-wine-800" />
+          <span className="mr-1.5 inline-block h-2.5 w-4 translate-y-[1px] rounded-sm bg-brand-800" />
           forward pass
         </span>
       </div>
@@ -177,7 +177,7 @@ export function StreamingNumbers() {
   return (
     <div className="grid gap-6 md:grid-cols-2">
       <div className="rounded-[var(--radius-lg)] bg-white p-5 ring-1 ring-rule">
-        <p className="mb-4 text-[13px] font-semibold text-wine-800">Success rate (%), OpenWAM-α, d = 8</p>
+        <p className="mb-4 text-[13px] font-semibold text-brand-800">Success rate (%), OpenWAM-α, d = 8</p>
         <div className="space-y-4">
           {STREAMING_TABLE.rows.map((r) => {
             const lo = Math.min(...r.values) - 6;
@@ -188,13 +188,13 @@ export function StreamingNumbers() {
                 {r.values.map((v, i) => (
                   <div key={i} className="grid grid-cols-[110px_minmax(0,1fr)_42px] items-center gap-3 py-[2px]">
                     <span className="text-[12px] text-muted">{STREAMING_TABLE.columns[i]}</span>
-                    <div className="h-[10px] rounded-[2px] bg-coral-50">
+                    <div className="h-[10px] rounded-[2px] bg-tint-50">
                       <div
                         className="h-full rounded-[2px]"
-                        style={{ width: `${((v - lo) / (hi - lo)) * 100}%`, background: i === 0 ? 'var(--coral-200)' : i === 1 ? 'var(--wine-500)' : 'var(--wine-700)' }}
+                        style={{ width: `${((v - lo) / (hi - lo)) * 100}%`, background: i === 0 ? 'var(--tint-200)' : i === 1 ? 'var(--brand-500)' : 'var(--brand-700)' }}
                       />
                     </div>
-                    <span className={`tnum text-right font-mono text-[12px] ${i === r.best ? 'font-semibold text-wine-800' : 'text-muted'}`}>{v.toFixed(1)}</span>
+                    <span className={`tnum text-right font-mono text-[12px] ${i === r.best ? 'font-semibold text-brand-800' : 'text-muted'}`}>{v.toFixed(1)}</span>
                   </div>
                 ))}
               </div>
@@ -205,12 +205,12 @@ export function StreamingNumbers() {
       </div>
       <div className="flex flex-col gap-6">
         <div className="rounded-[var(--radius-lg)] bg-white p-5 ring-1 ring-rule">
-          <p className="mb-4 text-[13px] font-semibold text-wine-800">What the prefix contains, RoboCasa365</p>
+          <p className="mb-4 text-[13px] font-semibold text-brand-800">What the prefix contains, RoboCasa365</p>
           {STREAMING_PLACEBO.map((p, i) => (
             <div key={p.label} className="grid grid-cols-[130px_minmax(0,1fr)_42px] items-center gap-3 py-[3px]">
               <span className="text-[12.5px] text-muted">{p.label}</span>
-              <div className="h-[10px] rounded-[2px] bg-coral-50">
-                <div className="h-full rounded-[2px]" style={{ width: `${(p.value / 50) * 100}%`, background: i === 0 ? 'var(--wine-700)' : 'var(--coral-300)' }} />
+              <div className="h-[10px] rounded-[2px] bg-tint-50">
+                <div className="h-full rounded-[2px]" style={{ width: `${(p.value / 50) * 100}%`, background: i === 0 ? 'var(--brand-700)' : 'var(--tint-300)' }} />
               </div>
               <span className="tnum text-right font-mono text-[12px] text-muted">{p.value.toFixed(1)}</span>
             </div>
@@ -226,9 +226,9 @@ export function StreamingNumbers() {
             ['81% → 10%', 'time spent waiting for inference'],
             ['≈ 20 Hz', 'closed-loop control on an M2 Max'],
           ].map(([big, small]) => (
-            <div key={big} className="rounded-[var(--radius-md)] bg-wine-950 p-4 text-on-wine ring-1 ring-white/10">
+            <div key={big} className="rounded-[var(--radius-md)] bg-brand-950 p-4 text-on-brand ring-1 ring-white/10">
               <p className="display text-[26px] leading-none">{big}</p>
-              <p className="mt-2 text-[11.5px] leading-snug text-on-wine-muted">{small}</p>
+              <p className="mt-2 text-[11.5px] leading-snug text-on-brand-muted">{small}</p>
             </div>
           ))}
         </div>
