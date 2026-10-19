@@ -219,8 +219,10 @@ const WINDOW_COLUMNS: { id: ArmId | 'recorded'; label: string; passes: string }[
   ...ARMS.map((a) => ({ id: a.id, label: a.label, passes: a.passes })),
 ];
 
+const ROBOCASA_START_STEPS = 16;
+
 function WindowView({ w }: { w: WindowClip }) {
-  const [k, setK] = useState(w.frames - 1);
+  const [k, setK] = useState(w.bench === 'robocasa' ? Math.round((ROBOCASA_START_STEPS * (w.frames - 1)) / 32) : w.frames - 1);
   const [playing, setPlaying] = useState(false);
   useEffect(() => {
     if (!playing) return;

@@ -80,8 +80,10 @@ function GateOverlay({ keep, show }: { keep: number[][]; show: boolean }) {
   );
 }
 
+const START_STEPS = 16;
+
 function OverlayView({ o }: { o: Overlay }) {
-  const [frame, setFrame] = useState(o.frames - 1);
+  const [frame, setFrame] = useState(Math.min(START_STEPS / 4, o.frames - 1));
   const [show, setShow] = useState(true);
   const [playing, setPlaying] = useState(false);
   useEffect(() => {
