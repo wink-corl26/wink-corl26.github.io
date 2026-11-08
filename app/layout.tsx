@@ -21,7 +21,6 @@ export const metadata: Metadata = {
   title: 'WINK: World-Action Imagination in a Blink',
   description:
     'WINK is a one-step world-action model that jointly generates robot actions and future visual observations in a single forward pass, trained with teacher-free drifting.',
-  robots: { index: false, follow: false },
 };
 
 export const viewport: Viewport = {

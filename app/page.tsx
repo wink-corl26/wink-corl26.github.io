@@ -11,6 +11,7 @@ import { Staircase } from '@/components/results/Staircase';
 import { Backbones } from '@/components/Backbones';
 import { Band, Caption, Container, Heading, SubHeading } from '@/components/Section';
 import { Tex } from '@/components/Tex';
+import { BibTeX } from '@/components/BibTeX';
 
 const ABSTRACT =
   'World-action models (WAMs) bring visual foresight to robot control, but the cost of imagination limits how quickly robots can act. We introduce WINK, a one-step WAM that jointly generates robot actions and future visual observations in one forward pass. We directly adapt pretrained WAMs through teacher-free drifting. Across three pretrained backbones and diverse manipulation benchmarks, WINK matches multi-step samplers in task success and approaches their video fidelity, while reducing inference latency by 2–10× across hardware from consumer laptops to datacenter GPUs. Zero-shot committed-prefix streaming further improves RoboCasa success by 9 percentage points and enables real-time closed-loop control on a laptop, while multi-resolution imagination reduces laptop latency by an additional 20%.';
@@ -37,17 +38,23 @@ function Hero() {
         <Title />
       </div>
       <div className="flex flex-col items-center gap-5 px-4 pt-6">
-        <p className="text-[17px] text-muted">Anonymous Author(s)</p>
+        <div className="text-center">
+          <p className="text-[17px] text-ink">Kaitlyn Zhang, Grace Chang Yuan, Jacqueline Yujia Wang</p>
+          <p className="mt-1 text-[15px] text-muted">MIT</p>
+        </div>
+        <p className="max-w-[60ch] text-balance text-center text-[14.5px] leading-[1.6] text-brand-700">
+          CoRL 2026 Workshop on Efficient Foundation Models for Real-Time Embodied AI (EEAI)
+        </p>
         <nav className="flex flex-wrap justify-center gap-3" aria-label="Links">
-          <span className="cursor-not-allowed rounded-full px-5 py-2 text-[14px] text-faint ring-1 ring-rule" title="Available after review">
+          <span className="cursor-not-allowed rounded-full px-5 py-2 text-[14px] text-faint ring-1 ring-rule" title="Coming soon">
             Paper
           </span>
           <a href="#abstract" className="rounded-full bg-brand-700 px-5 py-2 text-[14px] text-on-brand transition-colors hover:bg-brand-800">
             Abstract
           </a>
-          <span className="cursor-not-allowed rounded-full px-5 py-2 text-[14px] text-faint ring-1 ring-rule" title="Available after review">
+          <a href="#bibtex" className="rounded-full px-5 py-2 text-[14px] text-brand-700 ring-1 ring-rule transition-colors hover:bg-tint-100">
             BibTeX
-          </span>
+          </a>
         </nav>
       </div>
       <div className="mt-12">
@@ -262,6 +269,13 @@ export default function Home() {
             WINK further enables zero-shot streaming and multi-resolution imagination, bringing world-action models closer to real-time
             deployment on onboard hardware.
           </p>
+        </Container>
+      </Band>
+
+      <Band id="bibtex">
+        <Container>
+          <p className="eyebrow mb-5 text-brand-500">BibTeX</p>
+          <BibTeX />
         </Container>
       </Band>
 

@@ -2,10 +2,11 @@
 
 import { useState } from 'react';
 
-const ENTRY = `@misc{wink2026,
-  title  = {Imagine in a {WINK}: One-Step World Action Models via Drifting},
-  author = {Anonymous},
-  year   = {2026}
+const ENTRY = `@inproceedings{zhang2026wink,
+  title     = {Imagine in a {WINK}: One-Step World Action Models via Drifting},
+  author    = {Kaitlyn Zhang and Grace Chang Yuan and Jacqueline Yujia Wang},
+  booktitle = {CoRL 2026 Workshop on Efficient Foundation Models for Real-Time Embodied AI},
+  year      = {2026}
 }`;
 
 export function BibTeX() {
